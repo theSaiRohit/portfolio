@@ -2,6 +2,7 @@ import { navList } from "@/common-content";
 import {
   footerNavCss,
   footerNavLinkCss,
+  footerNavTitleWrapperCss,
   gridItemsValCss
 } from "@/modules/home/home-footer/footer-main/footer-nav/styles";
 import Link from "next/link";
@@ -15,7 +16,10 @@ export default function FooterNav() {
         key={`footer-nav-item-${title}`}
         css={[footerNavLinkCss, gridItemsValCss(grid.rowVal, grid.colVal)]}
       >
-        <span className="footer-nav-title">{title}</span>
+        <div css={footerNavTitleWrapperCss}>
+          <span className="footer-nav-title">{title}</span>
+          <span className="footer-nav-title">{title}</span>
+        </div>
         <p className="footer-nav-desc">{desc}</p>
       </Link>
     );

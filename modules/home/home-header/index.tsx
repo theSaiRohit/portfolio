@@ -7,7 +7,7 @@ import {
   homeHeaderWrapperCss,
   indiaFlagCss,
   locationWrapperCss,
-  workWrapperCss
+  workPositionWrapperCss
 } from "@/modules/home/home-header/styles";
 
 export default function HomeHeader() {
@@ -19,7 +19,7 @@ export default function HomeHeader() {
           <span>{city}</span>
           <ImageWrapper src="/images/india-flag-icon.png" alt="India Flag" extraStyles={indiaFlagCss} />
         </div>
-        <div css={workWrapperCss}>
+        <div css={workPositionWrapperCss}>
           <span css={greenBallCss}></span>
           <span>{workText}</span>
         </div>

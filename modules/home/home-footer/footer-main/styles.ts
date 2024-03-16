@@ -1,3 +1,4 @@
+import { mediaQuery } from "@/styles/media-queries";
 import { css } from "@emotion/react";
 
 export const footerMainWrapperCss = css`
@@ -6,4 +7,11 @@ export const footerMainWrapperCss = css`
   justify-content: space-between;
   padding: 0 5%;
   margin-bottom: var(--padding-dw);
+  ${mediaQuery.miniDesktop} {
+    flex-direction: column;
+    padding-left: 5%;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: var(--padding-mid);
+  }
 `;

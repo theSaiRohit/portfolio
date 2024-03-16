@@ -1,3 +1,4 @@
+import { mediaQuery } from "@/styles/media-queries";
 import { css } from "@emotion/react";
 
 export const navWrapperCss = css`
@@ -13,6 +14,9 @@ export const navWrapperCss = css`
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
+  ${mediaQuery.tablet} {
+    display: none;
+  }
 `;
 
 export const navItemCss = css`

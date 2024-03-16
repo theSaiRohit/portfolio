@@ -1,3 +1,4 @@
+import { mediaQuery } from "@/styles/media-queries";
 import { css } from "@emotion/react";
 
 export const footerWrapperCss = css`
@@ -8,18 +9,39 @@ export const footerWrapperCss = css`
   overflow: hidden;
   border-top: 1px solid var(--color-off-gray);
   padding: calc(2 * var(--padding-dw)) 0 var(--padding-dw) 0;
+  ${mediaQuery.tablet} {
+    padding: var(--padding-dw) 0 var(--padding-mid) 0;
+  }
 `;
 
 export const footerBlobOneCss = css`
+  --size: 300px;
+  --blur: 100px;
   position: absolute;
   z-index: -2;
-  filter: blur(100px);
-  aspect-ratio: 1;
+  filter: blur(var(--blur));
   transform: rotate(-135deg);
   top: 0;
   opacity: 0.8;
   left: -5%;
   background: conic-gradient(rgb(16, 178, 183) 60%, rgb(255, 159, 14) 40%);
-  height: 300px;
+  height: var(--size);
+  aspect-ratio: 1;
   border-radius: 29% 71% 70% 30% / 22% 41% 59% 78%;
+  ${mediaQuery.tablet} {
+    --size: 150px;
+    --blur: 50px;
+  }
+`;
+
+export const chihayaCss = css`
+  position: absolute;
+  bottom: 0;
+  height: 300px;
+  transform: rotateY(180deg);
+  aspect-ratio: 16 / 9;
+  right: 0;
+  img {
+    object-fit: contain;
+  }
 `;

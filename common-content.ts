@@ -8,7 +8,7 @@ export const navList = [
     }
   },
   {
-    title: "Skils",
+    title: "Skills",
     desc: "Here's a curated selection showcasing my expertise and the achieved results",
     grid: {
       rowVal: "2 / 3",

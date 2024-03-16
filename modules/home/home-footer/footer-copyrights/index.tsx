@@ -4,8 +4,8 @@ import { footerCopyrightsWrapperCss } from "@/modules/home/home-footer/footer-co
 export default function FooterCopyrights() {
   return (
     <div css={footerCopyrightsWrapperCss}>
-      <span>{copyrightText}</span>
-      <span>{poweredByText}</span>
+      <span className="copyright-text">{copyrightText}</span>
+      <span className="poweredby-text">{poweredByText}</span>
     </div>
   );
 }

@@ -12,6 +12,7 @@ export const globalStyles = css`
 
     --font-size-large: 3.4rem;
     --font-size-icon: 1.6rem;
+    --font-size-mini: 0.75rem;
 
     --padding-small: 15px;
     --padding-mid: 25px;

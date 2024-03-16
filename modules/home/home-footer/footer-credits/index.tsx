@@ -9,8 +9,8 @@ import Link from "next/link";
 export default function FooterCredits() {
   return (
     <div css={footerCreditsWrapperCss}>
-      <span>{inspoText}</span>
-      <Link href={inspirationPortfolioLink} css={creditCss}>
+      <span className="credits-text">{inspoText}</span>
+      <Link href={inspirationPortfolioLink} css={creditCss} rel="noopener noreferrer" target="_blank">
         {inspoPortfolioName}
       </Link>
     </div>

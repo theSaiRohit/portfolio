@@ -18,6 +18,7 @@ export const headerTextWrapperCss = css`
   display: flex;
   align-items: center;
   gap: var(--bor-rad-large);
+  font-size: var(--font-size-mini);
 `;
 
 export const locationWrapperCss = css`
@@ -34,7 +35,7 @@ export const indiaFlagCss = css`
   }
 `;
 
-export const workWrapperCss = css`
+export const workPositionWrapperCss = css`
   display: flex;
   border: 1px solid var(--color-text-default);
   border-radius: var(--bor-rad-large);
@@ -47,15 +48,10 @@ export const workWrapperCss = css`
 export const ballGrow = css`
   @keyframes grow-ball {
     0% {
-      transform: translate(-50%, -50%) scale(1);
-    }
-    80% {
-      transform: translate(-50%, -50%) scale(2.25);
-      opacity: 0.2;
+      box-shadow: 0 0 0 0 var(--color-success);
     }
     100% {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 0;
+      box-shadow: 0 0 0 calc(2 * var(--scrollbar-width)) transparent;
     }
   }
 `;
@@ -66,19 +62,6 @@ export const greenBallCss = css`
   aspect-ratio: 1;
   border-radius: 50%;
   background-color: var(--color-success);
-  position: relative;
-  &::before {
-    position: absolute;
-    content: "";
-    height: 100%;
-    width: 100%;
-    background-color: var(--color-success);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    opacity: 0.2;
-    animation: grow-ball 2s ease-in-out infinite;
-  }
+  animation: grow-ball 3s ease infinite;
   ${ballGrow}
 `;

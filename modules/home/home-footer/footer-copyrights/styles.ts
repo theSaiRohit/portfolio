@@ -6,4 +6,8 @@ export const footerCopyrightsWrapperCss = css`
   align-items: center;
   gap: calc(2 * var(--scrollbar-width));
   color: var(--color-text-gray);
+  text-align: center;
+  .poweredby-text {
+    width: 75%;
+  }
 `;
