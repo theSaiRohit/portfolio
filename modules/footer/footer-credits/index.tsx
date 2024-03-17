@@ -1,9 +1,5 @@
-import {
-  inspirationPortfolioLink,
-  inspoPortfolioName,
-  inspoText
-} from "@/modules/home/home-footer/footer-credits/content";
-import { creditCss, footerCreditsWrapperCss } from "@/modules/home/home-footer/footer-credits/styles";
+import { inspirationPortfolioLink, inspoPortfolioName, inspoText } from "@/modules/footer/footer-credits/content";
+import { creditCss, footerCreditsWrapperCss } from "@/modules/footer/footer-credits/styles";
 import Link from "next/link";
 
 export default function FooterCredits() {

@@ -55,7 +55,6 @@ export const mailCss = css`
 
 export const socialIconsWrapperCss = css`
   display: flex;
-  /* gap: calc(var(--padding-mid) + var(--padding-small)); */
   ${mediaQuery.mobile} {
     width: 80%;
     flex-wrap: wrap;
@@ -82,6 +81,7 @@ export const socialWrapperCss = css`
   transform: translate(-50%, -50%);
   display: grid;
   place-items: center;
+  transition: all 0.3s ease;
   &::before {
     position: absolute;
     content: "";
@@ -93,6 +93,7 @@ export const socialWrapperCss = css`
     transition: all 0.3s ease;
   }
   &:hover {
+    color: var(--color-bg-black);
     &::before {
       height: 100%;
       width: 100%;

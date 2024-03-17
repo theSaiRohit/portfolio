@@ -4,7 +4,8 @@ import {
   footerNavLinkCss,
   footerNavTitleWrapperCss,
   gridItemsValCss
-} from "@/modules/home/home-footer/footer-main/footer-nav/styles";
+} from "@/modules/footer/footer-main/footer-nav/styles";
+
 import Link from "next/link";
 
 export default function FooterNav() {

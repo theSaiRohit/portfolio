@@ -1,6 +1,6 @@
 import ImageWrapper from "@/components/image-wrapper";
 import Logo from "@/components/logo";
-import { city, workText } from "@/modules/home/home-header/content";
+import { city, workText } from "@/modules/header/content";
 import {
   greenBallCss,
   headerTextWrapperCss,
@@ -8,9 +8,9 @@ import {
   indiaFlagCss,
   locationWrapperCss,
   workPositionWrapperCss
-} from "@/modules/home/home-header/styles";
+} from "@/modules/header/styles";
 
-export default function HomeHeader() {
+export default function Header() {
   return (
     <header css={homeHeaderWrapperCss}>
       <Logo />

@@ -9,5 +9,6 @@ export const footerCopyrightsWrapperCss = css`
   text-align: center;
   .poweredby-text {
     width: 75%;
+    line-height: var(--line-height);
   }
 `;
