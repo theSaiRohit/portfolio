@@ -1,9 +1,13 @@
+import { mediaQuery } from "@/styles/media-queries";
 import { css } from "@emotion/react";
 
 export const logoWrapperCss = css`
   position: relative;
   text-decoration: none;
   margin: 10vh;
+  ${mediaQuery.mobile} {
+    transform: scale(0.75);
+  }
 `;
 
 export const logoBallCss = css`

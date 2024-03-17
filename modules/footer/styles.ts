@@ -33,15 +33,3 @@ export const footerBlobOneCss = css`
     --blur: 50px;
   }
 `;
-
-export const chihayaCss = css`
-  position: absolute;
-  bottom: 0;
-  height: 300px;
-  transform: rotateY(180deg);
-  aspect-ratio: 16 / 9;
-  right: 0;
-  img {
-    object-fit: contain;
-  }
-`;

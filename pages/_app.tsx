@@ -9,7 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Global styles={globalStyles} />
-      {/* <Header /> */}
+      <Header />
       <NavBar />
       <Component {...pageProps} />
       <Footer />

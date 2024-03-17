@@ -1,24 +1,25 @@
 import { css } from "@emotion/react";
 
-export const errorStripCss = (rotate: string, zIndex: string, top: string) => css`
+export const messageStripCss = (rotate: string, zIndex: string, top: string) => css`
   display: flex;
   height: var(--padding-mw);
-  width: 120%;
+  width: 120vw;
   transform: rotate(${rotate});
   position: absolute;
   top: ${top};
   z-index: ${zIndex};
   background-color: var(--color-bg-black);
-  overflow: hidden;
 `;
 
-export const errorStripTrackCss = css`
+export const messageStripTrackCss = css`
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  animation: shift-left 45s linear infinite;
-  gap: var(--padding-mid);
-  padding-right: var(--padding-mid);
+  animation: shift-left 80s linear infinite;
+  gap: var(--bor-rad-large);
+  padding-right: var(--bor-rad-large);
+  background-color: var(--color-bg-black);
+
   @keyframes shift-left {
     0% {
       transform: translateX(0);
@@ -29,19 +30,20 @@ export const errorStripTrackCss = css`
   }
 `;
 
-export const errorInfoContainerCss = css`
+export const messageInfoContainerCss = css`
   display: flex;
   align-items: center;
-  gap: var(--padding-mid);
+  gap: var(--bor-rad-large);
   height: 100%;
   width: fit-content;
+  color: var(--color-text-gray);
 `;
 
-export const errorNameCss = css`
+export const messageNameCss = css`
   color: var(--color-highlight);
-  font-weight: 600;
+  font-weight: 500;
 `;
 
-export const errorMsgCss = css`
+export const messageMsgCss = css`
   flex-shrink: 0;
 `;

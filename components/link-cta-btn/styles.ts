@@ -5,7 +5,7 @@ export const btnWrapperCss = css`
   text-decoration: none;
   color: var(--color-bg-black);
   border-radius: var(--bor-rad-large);
-  font-weight: 600;
+  font-weight: 500;
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;

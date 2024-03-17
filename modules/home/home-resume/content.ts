@@ -1,3 +1,4 @@
+export const resumeHeading = "My Resume";
 export const developerName = "Sai Rohit";
 export const developerPosition = "Pre-final Year Student";
 export const developerStudies = "B.Tech - CSE";

@@ -10,20 +10,6 @@ export const footerSocialsWrapperCss = css`
   }
 `;
 
-export const socialsHeadingCss = css`
-  display: flex;
-  flex-direction: column;
-  font-size: var(--font-size-large);
-  .socials-heading-text {
-    &:nth-of-type(1) {
-      color: var(--color-text-gray);
-    }
-  }
-  ${mediaQuery.tablet} {
-    --font-size-large: 2rem;
-  }
-`;
-
 export const mailCss = css`
   color: var(--color-text-gray);
   text-decoration: none;

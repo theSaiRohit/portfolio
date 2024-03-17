@@ -34,7 +34,7 @@ export const footerNavLinkCss = css`
   }
   &:hover {
     .footer-nav-title {
-      transform: translateY(-30px);
+      transform: translateY(-100%);
     }
   }
   ${mediaQuery.tablet} {
@@ -47,13 +47,19 @@ export const footerNavLinkCss = css`
 export const footerNavTitleWrapperCss = css`
   display: flex;
   flex-direction: column;
-  height: 30px;
   overflow: hidden;
-  .footer-nav-title {
-    transition: all 0.15s linear;
-    padding: var(--scrollbar-width) 0;
-    &:nth-of-type(2) {
-      color: var(--color-highlight);
-    }
+`;
+
+export const footerNavTitleCss = css`
+  position: relative;
+  transition: transform 0.2s ease;
+  &::before {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    content: attr(data-span);
+    height: 100%;
+    width: 100%;
+    color: var(--color-highlight);
   }
 `;

@@ -1,7 +1,7 @@
 import LinkCtaBtn from "@/components/link-cta-btn";
+import MessageStrip from "@/components/message-strip";
 import NoiseTexture from "@/components/noise-texture";
-import { errorCta } from "@/modules/error-404/content";
-import ErrorStrip from "@/modules/error-404/error-strip";
+import { errorCta, errorMsg, errorName } from "@/modules/error-404/content";
 import { error404WrapperCss } from "@/modules/error-404/styles";
 import HomeBlobs from "@/modules/home/home-landing-bg/home-blobs";
 import Link from "next/link";
@@ -11,8 +11,8 @@ export default function Error404Module() {
     <section css={error404WrapperCss}>
       <HomeBlobs />
       <NoiseTexture />
-      <ErrorStrip rotate="-30deg" zIndex="-1" top="20%" />
-      <ErrorStrip rotate="10deg" zIndex="0" top="70%" />
+      <MessageStrip rotate="-30deg" zIndex="-1" top="20%" textOne={errorName} textTwo={errorMsg} />
+      <MessageStrip rotate="10deg" zIndex="0" top="70%" textOne={errorName} textTwo={errorMsg} />
       <LinkCtaBtn link="/" text={errorCta} />
     </section>
   );

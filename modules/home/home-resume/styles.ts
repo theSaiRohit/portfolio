@@ -2,13 +2,20 @@ import { mediaQuery } from "@/styles/media-queries";
 import { css } from "@emotion/react";
 
 export const homeResumeWrapperCss = css`
-  min-height: 120vh;
-  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
+  padding: var(--padding-dw) 0;
+  gap: var(--padding-mw);
+  ${mediaQuery.tablet} {
+    gap: 0;
+  }
+`;
+
+export const resumeBodyCss = css`
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
 `;
 
 export const resumeCardsWrapperCss = css`
@@ -17,13 +24,24 @@ export const resumeCardsWrapperCss = css`
     z-index: -2;
     position: absolute;
     content: "";
-    height: 120%;
-    width: 120%;
+    height: 100%;
+    width: 100%;
     top: -25%;
     transform: rotate(-135deg);
+    opacity: 0.35;
     background: linear-gradient(-135deg, #ff00e1 5%, #00009f);
     filter: blur(100px);
     border-radius: 39% 61% 61% 39% / 16% 24% 76% 84%;
+  }
+  ${mediaQuery.tablet} {
+    &::before {
+      opacity: 1;
+      height: 50%;
+      width: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 `;
 
@@ -71,11 +89,11 @@ export const resumeNameCss = css`
   font-size: var(--font-size-icon);
   color: var(--color-highlight);
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 500;
 `;
 
 export const devPositionTextCss = css`
-  font-weight: 600;
+  font-weight: 500;
 `;
 
 export const resumeDescriptionCss = css`

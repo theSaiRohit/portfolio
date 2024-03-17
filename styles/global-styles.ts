@@ -3,16 +3,19 @@ import { Inter } from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "600"]
+  weight: ["400", "500"]
 });
 
 export const globalStyles = css`
   :root {
     --font-default: ${inter.style.fontFamily};
 
-    --font-size-large: 3.4rem;
+    --font-size-main: 7rem;
+    --font-size-large: 4rem;
+    --font-size-mid: 3rem;
     --font-size-icon: 1.6rem;
     --font-size-mini: 0.75rem;
+    --font-size-small: 1.4rem;
 
     --padding-small: 15px;
     --padding-mid: 25px;
@@ -21,6 +24,8 @@ export const globalStyles = css`
     --bor-rad-large: 50px;
     --scrollbar-width: 5px;
     --line-height: 1.5rem;
+    --gutter-padding: 5%;
+    --tablet-width: 750px;
 
     --color-bg: rgb(11, 11, 14);
     --color-highlight: hsl(30, 100%, 45.3%);
@@ -41,9 +46,11 @@ export const globalStyles = css`
   #__next {
     color: var(--color-text-default);
     letter-spacing: 1px;
+    overflow-x: hidden;
   }
   body {
     background-color: var(--color-bg);
+    overflow-x: hidden;
     &::-webkit-scrollbar {
       width: var(--scrollbar-width);
     }

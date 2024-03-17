@@ -1,3 +1,4 @@
+import Heading from "@/components/heading";
 import useMousePos from "@/hooks/use-mouse-pos";
 import { mail, socials, socialsHeading } from "@/modules/footer/footer-main/footer-socials/content";
 import {
@@ -5,8 +6,7 @@ import {
   mailCss,
   socialIconLinkCss,
   socialIconsWrapperCss,
-  socialWrapperCss,
-  socialsHeadingCss
+  socialWrapperCss
 } from "@/modules/footer/footer-main/footer-socials/styles";
 import Link from "next/link";
 
@@ -29,16 +29,10 @@ export default function FooterSocials() {
       </Link>
     );
   };
-  const socialsHeadingMapper = (text: string) => {
-    return (
-      <span key={text} className="socials-heading-text">
-        {text}
-      </span>
-    );
-  };
+
   return (
     <div css={footerSocialsWrapperCss}>
-      <h2 css={socialsHeadingCss}>{socialsHeading.split(" ").map(socialsHeadingMapper)}</h2>
+      <Heading text={socialsHeading} />
       <Link href={`mailto:${mail}`} css={mailCss}>
         {mail}
       </Link>
