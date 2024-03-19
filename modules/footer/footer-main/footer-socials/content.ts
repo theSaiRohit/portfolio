@@ -1,7 +1,6 @@
 import { BsGithub, BsInstagram, BsLinkedin, BsTwitterX, BsWhatsapp } from "react-icons/bs";
 
 export const socialsHeading = "Let's Connect.";
-export const mail = "sairohit11.s@gmail.com";
 
 export const socials = [
   {

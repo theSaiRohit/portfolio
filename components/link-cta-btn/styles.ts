@@ -25,7 +25,7 @@ export const btnWrapperCss = css`
   &::after {
     position: absolute;
     content: "";
-    width: 200%;
+    width: 250%;
     aspect-ratio: 1;
     top: 100%;
     left: 50%;

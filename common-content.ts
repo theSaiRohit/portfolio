@@ -40,3 +40,5 @@ export const navList = [
     }
   }
 ];
+
+export const mail = "sairohit11.s@gmail.com";

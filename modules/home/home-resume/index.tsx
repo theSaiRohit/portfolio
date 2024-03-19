@@ -1,7 +1,7 @@
+import { mail } from "@/common-content";
 import Heading from "@/components/heading";
 import ImageWrapper from "@/components/image-wrapper";
 import LinkCtaBtn from "@/components/link-cta-btn";
-import { mail } from "@/modules/footer/footer-main/footer-socials/content";
 import {
   developerClg,
   developerDescription,
