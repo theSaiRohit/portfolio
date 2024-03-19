@@ -1,6 +1,7 @@
+import { mail } from "@/common-content";
 import Heading from "@/components/heading";
 import useMousePos from "@/hooks/use-mouse-pos";
-import { mail, socials, socialsHeading } from "@/modules/footer/footer-main/footer-socials/content";
+import { socials, socialsHeading } from "@/modules/footer/footer-main/footer-socials/content";
 import {
   footerSocialsWrapperCss,
   mailCss,
