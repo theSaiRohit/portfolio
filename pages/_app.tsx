@@ -4,10 +4,14 @@ import NavBar from "@/modules/nav-bar";
 import { globalStyles } from "@/styles/global-styles";
 import { Global } from "@emotion/react";
 import type { AppProps } from "next/app";
+import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
+      <Head>
+        <title>Sai Rohit</title>
+      </Head>
       <Global styles={globalStyles} />
       <Header />
       <NavBar />
