@@ -9,7 +9,7 @@ export const navWrapperCss = css`
   width: fit-content;
   border: 1px solid var(--color-off-gray);
   position: fixed;
-  bottom: 5vh;
+  bottom: 2.5vh;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;

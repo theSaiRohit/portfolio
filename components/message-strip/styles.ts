@@ -19,7 +19,6 @@ export const messageStripTrackCss = css`
   gap: var(--bor-rad-large);
   padding-right: var(--bor-rad-large);
   background-color: var(--color-bg-black);
-
   @keyframes shift-left {
     0% {
       transform: translateX(0);

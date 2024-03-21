@@ -23,7 +23,7 @@ export const globalStyles = css`
     --padding-mw: 5vh;
     --bor-rad-large: 50px;
     --scrollbar-width: 5px;
-    --line-height: 1.5rem;
+    --line-height: 1.75rem;
     --gutter-padding: 5%;
     --tablet-width: 750px;
 
@@ -46,7 +46,6 @@ export const globalStyles = css`
   #__next {
     color: var(--color-text-default);
     letter-spacing: 1px;
-    overflow-x: hidden;
   }
   body {
     background-color: var(--color-bg);
