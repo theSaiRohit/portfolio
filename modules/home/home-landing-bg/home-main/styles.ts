@@ -2,14 +2,14 @@ import { mediaQuery } from "@/styles/media-queries";
 import { css } from "@emotion/react";
 
 export const mainCss = css`
-  position: absolute;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: var(--padding-mw);
+  z-index: var(--z-low-a);
   ${mediaQuery.tablet} {
     gap: var(--padding-dw);
   }

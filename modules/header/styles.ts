@@ -139,7 +139,7 @@ export const headerNavCss = css`
     justify-content: center;
     gap: var(--gutter-padding);
     transition: right 0.3s ease;
-    z-index: -1;
+    z-index: var(--z-low-a);
     right: 100%;
     top: 0;
     padding-left: calc(2.5 * var(--gutter-padding));

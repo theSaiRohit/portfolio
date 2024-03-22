@@ -25,7 +25,16 @@ export const globalStyles = css`
     --scrollbar-width: 5px;
     --line-height: 1.75rem;
     --gutter-padding: 5%;
+    --mini-desktop-width: 1200px;
     --tablet-width: 750px;
+    --mobile-width: 450px;
+
+    --z-lowest: -3;
+    --z-low-b: -2;
+    --z-low-a: -1;
+    --z-mid: 0;
+    --z-high: 1;
+    --z-highest: 2;
 
     --color-bg: rgb(11, 11, 14);
     --color-highlight: hsl(30, 100%, 45.3%);
@@ -47,9 +56,14 @@ export const globalStyles = css`
     color: var(--color-text-default);
     letter-spacing: 1px;
   }
+  ::selection {
+    color: var(--color-bg-black);
+    background: var(--color-highlight);
+  }
   body {
     background-color: var(--color-bg);
     overflow-x: hidden;
+
     &::-webkit-scrollbar {
       width: var(--scrollbar-width);
     }
@@ -57,6 +71,11 @@ export const globalStyles = css`
       background-color: var(--color-highlight);
       border-radius: var(--bor-rad-large);
     }
+  }
+  section,
+  footer {
+    background-color: var(--color-bg);
+    z-index: var(--z-mid);
   }
   p {
     line-height: var(--line-height);

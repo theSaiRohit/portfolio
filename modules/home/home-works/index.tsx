@@ -4,7 +4,8 @@ import {
   sliderContainer,
   workWrapperCss,
   worksContainerCss,
-  worksStickyContainerCss
+  worksStickyContainerCss,
+  worksStripWrapperCss
 } from "@/modules/home/home-works/styles";
 import WorksCarousal from "@/modules/home/home-works/works-carousal";
 import WorksIntro from "@/modules/home/home-works/works-intro";
@@ -12,11 +13,34 @@ import { MouseEventHandler, useEffect, useRef, useState } from "react";
 
 export default function HomeWorks() {
   const [containerHeight, setContainerHeight] = useState<number>(0);
+  const worksWrapperRef = useRef<HTMLElement>(null);
   const worksContainerRef = useRef<HTMLDivElement>(null);
   const slidingContainerRef = useRef<HTMLDivElement>(null);
   const worksCarousalRef = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
+    const worksWrapper = worksWrapperRef.current;
+    if (worksWrapper) {
+      const widthHandler = () => {
+        const numCalc = (num: number) => {
+          return (scrollY * num) / (window.innerHeight / 3);
+        };
+        if (scrollY < window.innerHeight / 3) {
+          worksWrapper.style.width = `calc(80vw + ${numCalc(20)}vw)`;
+          worksWrapper.style.transform = `translate(${10 - numCalc(10)}vw)`;
+        } else {
+          worksWrapper.style.width = "100vw";
+          worksWrapper.style.transform = `translate(0vw)`;
+        }
+      };
+      window.addEventListener("scroll", widthHandler);
+      return () => {
+        window.removeEventListener("scroll", widthHandler);
+      };
+    }
+  }, []);
+  useEffect(() => {
+    if (window.innerWidth <= 1200) return;
     const container = worksContainerRef.current;
     const slidingContainer = slidingContainerRef.current;
     const worksCarousal = worksCarousalRef.current;
@@ -34,45 +58,41 @@ export default function HomeWorks() {
     };
 
     if (slidingContainer) {
-      let targetScroll = 0;
       let currentScroll = slidingContainer.scrollLeft;
 
-      const scrollHandler = () => {
-        if (topVal) {
-          if (scrollY - topVal > 0 && scrollY - topVal < containerHeight - window.innerHeight) {
-            const scrollAmount = scrollY - topVal;
-            targetScroll = scrollAmount;
+      const handleScroll = () => {
+        const { scrollY } = window;
+        const targetScroll = Math.max(0, scrollY - (topVal ?? 0));
+
+        const smoothScroll = () => {
+          currentScroll = lerp(currentScroll, targetScroll, 0.1);
+          slidingContainer.scrollLeft = currentScroll;
+          if (Math.abs(currentScroll - targetScroll) > 0.5) {
+            requestAnimationFrame(smoothScroll);
           }
-        }
-      };
+        };
 
-      const smoothScroll = () => {
-        currentScroll = lerp(currentScroll, targetScroll, 0.1);
-        slidingContainer.scrollLeft = currentScroll;
-        if (Math.abs(currentScroll - targetScroll) > 0.5) {
-          requestAnimationFrame(smoothScroll);
-        }
-      };
-
-      window.addEventListener("scroll", () => {
-        scrollHandler();
         smoothScroll();
-      });
+      };
+
+      window.addEventListener("scroll", handleScroll);
 
       return () => {
-        window.removeEventListener("scroll", scrollHandler);
+        window.removeEventListener("scroll", handleScroll);
       };
     }
   }, [containerHeight]);
   return (
-    <section css={workWrapperCss}>
-      <MessageStrip
-        textOne={workStripMsg.split(" ")[0]}
-        textTwo={workStripMsg.split(" ")[1]}
-        rotate="0"
-        top="0"
-        zIndex="0"
-      />
+    <section css={workWrapperCss} ref={worksWrapperRef}>
+      <div css={worksStripWrapperCss}>
+        <MessageStrip
+          textOne={workStripMsg.split(" ")[0]}
+          textTwo={workStripMsg.split(" ")[1]}
+          rotate="0"
+          zIndex="0"
+          bg={false}
+        />
+      </div>
       <div css={worksContainerCss} ref={worksContainerRef}>
         <div css={worksStickyContainerCss} ref={slidingContainerRef}>
           <div css={sliderContainer} ref={sliderRef}>

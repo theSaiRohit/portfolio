@@ -19,7 +19,7 @@ export const mailCss = css`
   transition: all 0.3s ease;
   ${mediaQuery.desktop} {
     &::before {
-      z-index: -1;
+      z-index: var(--z-low-a);
       position: absolute;
       content: "";
       background-color: var(--color-highlight);
@@ -36,6 +36,9 @@ export const mailCss = css`
         left: -5%;
       }
     }
+  }
+  ${mediaQuery.tablet} {
+    padding-bottom: 0;
   }
 `;
 
@@ -75,7 +78,7 @@ export const socialWrapperCss = css`
     width: 0%;
     border-radius: 50%;
     background-color: var(--color-highlight);
-    z-index: -1;
+    z-index: var(--z-low-a);
     transition: all 0.3s ease;
   }
   &:hover {

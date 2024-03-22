@@ -4,7 +4,7 @@ const linesWrapperCss = css`
   position: absolute;
   top: 0;
   width: 100%;
-  z-index: -3;
+  z-index: var(--z-low-b);
   display: flex;
   flex-direction: column;
   justify-content: space-between;

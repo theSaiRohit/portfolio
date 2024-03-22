@@ -21,7 +21,7 @@ export const resumeBodyCss = css`
 export const resumeCardsWrapperCss = css`
   position: relative;
   &::before {
-    z-index: -2;
+    z-index: 0;
     position: absolute;
     content: "";
     height: 100%;

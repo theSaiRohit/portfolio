@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 
 export const blobCss = css`
   position: absolute;
-  z-index: -2;
+  z-index: var(--z-low-b);
   filter: blur(calc(2 * var(--bor-rad-large)));
   aspect-ratio: 1;
   transform: rotate(-135deg);

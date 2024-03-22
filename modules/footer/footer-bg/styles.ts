@@ -4,7 +4,7 @@ import { css } from "@emotion/react";
 export const footerBgWrapperCss = css`
   position: absolute;
   inset: 0;
-  z-index: -3;
+  z-index: var(--z-low-a);
   ${mediaQuery.tablet} {
     left: -80%;
     top: -20%;

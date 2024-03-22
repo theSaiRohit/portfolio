@@ -11,6 +11,7 @@ export const btnWrapperCss = css`
   transition: all 0.3s ease;
   width: fit-content;
   height: fit-content;
+  z-index: var(--z-mid);
   &::before {
     position: absolute;
     content: "";
@@ -20,7 +21,7 @@ export const btnWrapperCss = css`
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: var(--color-highlight);
-    z-index: -1;
+    z-index: var(--z-low-a);
   }
   &::after {
     position: absolute;
@@ -31,7 +32,7 @@ export const btnWrapperCss = css`
     left: 50%;
     transform: translate(-50%, 0);
     background-color: var(--color-text-default);
-    z-index: -1;
+    z-index: var(--z-low-a);
     border-radius: 50%;
     transition: all 0.3s ease;
   }

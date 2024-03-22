@@ -18,7 +18,7 @@ export const footerBlobOneCss = css`
   --size: 300px;
   --blur: 100px;
   position: absolute;
-  z-index: -2;
+  z-index: var(--z-low-b);
   filter: blur(var(--blur));
   transform: rotate(-135deg);
   top: 0;

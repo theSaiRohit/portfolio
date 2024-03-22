@@ -1,3 +1,4 @@
+import { mediaQuery } from "@/styles/media-queries";
 import { css } from "@emotion/react";
 
 export const workCardsWrapperCss = css`
@@ -5,6 +6,12 @@ export const workCardsWrapperCss = css`
   gap: calc(2 * var(--bor-rad-large));
   height: 100%;
   padding-right: var(--gutter-padding);
+  ${mediaQuery.miniDesktop} {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 var(--gutter-padding);
+    gap: var(--bor-rad-large);
+  }
 `;
 
 export const workCardCss = css`
@@ -27,7 +34,7 @@ export const workCardCss = css`
     height: 100%;
     width: 100%;
     background-color: var(--custom-color);
-    z-index: -1;
+    z-index: var(--z-mid);
     transition: all 0.3s ease;
   }
   &::after {
@@ -40,7 +47,8 @@ export const workCardCss = css`
     height: 50%;
     width: 85%;
     background-color: var(--custom-color);
-    z-index: -2;
+    z-index: var(--z-low-a);
+
     filter: blur(100px);
     opacity: 0.75;
   }
@@ -48,6 +56,30 @@ export const workCardCss = css`
     &::before {
       width: 104%;
       height: 102%;
+    }
+  }
+  ${mediaQuery.miniDesktop} {
+    max-width: var(--tablet-width);
+    width: 100%;
+    height: 50vh;
+    &::after {
+      height: 25%;
+    }
+  }
+  ${mediaQuery.tablet} {
+    &:hover {
+      &::before {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  ${mediaQuery.mobile} {
+    padding: var(--padding-mid);
+    padding-bottom: 0;
+    gap: var(--padding-small);
+    &::before {
+      border-radius: var(--padding-small);
     }
   }
 `;
@@ -58,6 +90,7 @@ export const workTitleWrapperCss = css`
   justify-content: space-between;
   flex-shrink: 0;
   color: var(--color-bg-black);
+  z-index: var(--z-mid);
 `;
 
 export const workTitleCss = css`
@@ -101,5 +134,9 @@ export const workImgCss = css`
   overflow: hidden;
   img {
     object-fit: cover;
+  }
+  ${mediaQuery.mobile} {
+    border-top-right-radius: var(--scrollbar-width);
+    border-top-left-radius: var(--scrollbar-width);
   }
 `;

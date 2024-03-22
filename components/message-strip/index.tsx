@@ -8,7 +8,7 @@ import {
 import { MessageStripProps } from "@/components/message-strip/types";
 
 export default function MessageStrip(props: MessageStripProps) {
-  const { rotate, zIndex, top, textOne, textTwo } = props;
+  const { rotate, zIndex, top = "", textOne, textTwo, bg = true } = props;
   const messageMapper = (_: unknown, index: number) => {
     return (
       <div key={index} css={messageInfoContainerCss}>
@@ -18,9 +18,9 @@ export default function MessageStrip(props: MessageStripProps) {
     );
   };
   return (
-    <div css={messageStripCss(rotate, zIndex, top)}>
-      <div css={messageStripTrackCss}>{Array(10).fill({}).map(messageMapper)}</div>
-      <div css={messageStripTrackCss}>{Array(10).fill({}).map(messageMapper)}</div>
+    <div css={messageStripCss(rotate, zIndex, top, bg)}>
+      <div css={messageStripTrackCss(bg)}>{Array(10).fill({}).map(messageMapper)}</div>
+      <div css={messageStripTrackCss(bg)}>{Array(10).fill({}).map(messageMapper)}</div>
     </div>
   );
 }

@@ -9,7 +9,7 @@ export const navWrapperCss = css`
   width: fit-content;
   border: 1px solid var(--color-off-gray);
   position: fixed;
-  bottom: 2.5vh;
+  bottom: 4vh;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
@@ -55,7 +55,7 @@ export const navItemCss = css`
     background-color: var(--color-highlight);
     height: 0%;
     width: 0%;
-    z-index: -1;
+    z-index: var(--z-low-a);
     transition: all 0.3s ease;
   }
   &:hover {

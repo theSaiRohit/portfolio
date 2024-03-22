@@ -1,24 +1,25 @@
 import { css } from "@emotion/react";
 
-export const messageStripCss = (rotate: string, zIndex: string, top: string) => css`
+export const messageStripCss = (rotate: string, zIndex: string, top: string, bg: boolean) => css`
   display: flex;
   height: var(--padding-mw);
   width: 120vw;
   transform: rotate(${rotate});
-  position: absolute;
-  top: ${top};
   z-index: ${zIndex};
-  background-color: var(--color-bg-black);
+  background-color: ${bg ? "var(--color-bg-black)" : ""};
+  position: ${top ? "absolute" : "static"};
+  top: ${top ? top : 0};
 `;
 
-export const messageStripTrackCss = css`
+export const messageStripTrackCss = (bg: boolean) => css`
   display: flex;
   align-items: center;
   flex-shrink: 0;
   animation: shift-left 80s linear infinite;
   gap: var(--bor-rad-large);
   padding-right: var(--bor-rad-large);
-  background-color: var(--color-bg-black);
+  background-color: ${bg ? "var(--color-bg-black)" : ""};
+
   @keyframes shift-left {
     0% {
       transform: translateX(0);

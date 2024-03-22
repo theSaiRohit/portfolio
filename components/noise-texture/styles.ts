@@ -7,5 +7,5 @@ export const noiseWrapperCss = css`
   inset: 0;
   height: 100%;
   width: 100%;
-  z-index: -1;
+  z-index: var(--z-low-a);
 `;
