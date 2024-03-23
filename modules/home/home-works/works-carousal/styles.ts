@@ -48,7 +48,6 @@ export const workCardCss = css`
     width: 85%;
     background-color: var(--custom-color);
     z-index: var(--z-low-a);
-
     filter: blur(100px);
     opacity: 0.75;
   }
@@ -72,6 +71,12 @@ export const workCardCss = css`
         width: 100%;
         height: 100%;
       }
+    }
+    &::after {
+      width: 100%;
+      transform: translate(-50%, 0);
+      top: 10%;
+      opacity: 0.4;
     }
   }
   ${mediaQuery.mobile} {

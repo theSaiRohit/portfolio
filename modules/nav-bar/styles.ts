@@ -4,7 +4,8 @@ import { css } from "@emotion/react";
 export const navWrapperCss = css`
   display: flex;
   padding: 0 var(--padding-mid);
-  background-color: var(--color-bg-black);
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(var(--scrollbar-width));
   border-radius: var(--bor-rad-large);
   width: fit-content;
   border: 1px solid var(--color-off-gray);

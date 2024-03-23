@@ -24,7 +24,7 @@ export const workIntroBlobCss = css`
   z-index: var(--z-low-b);
   filter: blur(var(--blur));
   transform: rotate(-135deg);
-  top: 10%;
+  top: 20%;
   opacity: 0.4;
   left: -50%;
   background: conic-gradient(rgb(243, 250, 209) 60%, rgb(255, 14, 175) 40%);
@@ -35,7 +35,7 @@ export const workIntroBlobCss = css`
     --blur: 60px;
     z-index: var(--z-mid);
     left: -20%;
-    top: 0;
+    top: 30%;
   }
 `;
 

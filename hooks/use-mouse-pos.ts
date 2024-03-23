@@ -7,7 +7,6 @@ export default function useMousePos() {
     const linksWrapper = containerRef.current;
     const linksArray: HTMLAnchorElement[] = Array.from(linksWrapper?.querySelectorAll(".link-wrapper") ?? []);
     const mouseMoveHandler = (e: MouseEvent) => {
-      console.log(linksArray);
       e.preventDefault();
       e.stopPropagation();
       const { x, y, currentTarget } = e;
