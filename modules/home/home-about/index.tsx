@@ -5,6 +5,7 @@ import InnerSvg from "@/modules/home/home-about/inner-svg";
 import OuterSvg from "@/modules/home/home-about/outer-svg";
 import {
   aboutBallCss,
+  aboutBlobOneCss,
   aboutDescCss,
   aboutHeadingCss,
   aboutWrapperCss,
@@ -66,6 +67,7 @@ export default function HomeAbout() {
   }, []);
   return (
     <section css={aboutWrapperCss}>
+      <div css={aboutBlobOneCss}></div>
       <Heading text={aboutHeadingText} extraStyles={aboutHeadingCss} />
       <p css={aboutDescCss}>{aboutDesc}</p>
       <div css={svgWrapperCss} ref={svgWrapperRef}>

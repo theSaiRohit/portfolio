@@ -4,12 +4,14 @@ import { css } from "@emotion/react";
 export const mainCss = css`
   height: 100vh;
   width: 100%;
+  position: absolute;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: var(--padding-mw);
-  z-index: var(--z-low-a);
+  background-color: transparent;
   ${mediaQuery.tablet} {
     gap: var(--padding-dw);
   }
@@ -25,6 +27,17 @@ export const h1WrapperCss = css`
   }
   ${mediaQuery.tablet} {
     --font-size-large: 10vw;
+  }
+`;
+
+export const nameSpanContainerCss = css`
+  display: flex;
+  gap: 1.75rem;
+  .name-word {
+    &:nth-of-type(2),
+    &:nth-of-type(3) {
+      color: var(--color-highlight);
+    }
   }
 `;
 

@@ -7,11 +7,11 @@ export default function ImageWrapper(props: ImageWrapperType) {
   const { alt, src, priority = false, extraStyles, link, title } = props;
   return link ? (
     <Link css={[imageContainerCss, extraStyles]} href={link} title={title}>
-      <Image alt={alt} src={src} fill sizes="100%" priority={priority} />
+      <Image alt={alt} src={src} fill sizes="100%" priority={priority} draggable={false} />
     </Link>
   ) : (
     <div css={[imageContainerCss, extraStyles]} title={title}>
-      <Image alt={alt} src={src} fill sizes="100%" priority={priority} />
+      <Image alt={alt} src={src} fill sizes="100%" priority={priority} draggable={false} />
     </div>
   );
 }

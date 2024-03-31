@@ -25,7 +25,7 @@ const lineSvgCss = css`
   width: 100%;
   position: absolute;
   bottom: -2.5px;
-  opacity: 0.4;
+  opacity: 0.75;
 `;
 
 const lineAnim = (lineNum: number) => css`
