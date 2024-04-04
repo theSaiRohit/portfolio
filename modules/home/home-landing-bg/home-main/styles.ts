@@ -32,7 +32,7 @@ export const h1WrapperCss = css`
 
 export const nameSpanContainerCss = css`
   display: flex;
-  gap: 1.5vw;
+  gap: 0.25em;
   .name-word {
     &:nth-of-type(2),
     &:nth-of-type(3) {

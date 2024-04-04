@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
     const { addEventListener, removeEventListener, scrollTo } = window;
     const appResizeHandler = () => {
       scrollTo(0, 0);
-      router.reload();
+      // router.reload();
     };
     addEventListener("resize", appResizeHandler);
     return () => removeEventListener("resize", appResizeHandler);
