@@ -1,7 +1,7 @@
 import { navList } from "@/common-content";
 import ImageWrapper from "@/components/image-wrapper";
 import Logo from "@/components/logo";
-import { city, workText } from "@/modules/header/content";
+import { city, locationLink, workText } from "@/modules/header/content";
 import {
   greenBallCss,
   hamburgerCss,
@@ -11,6 +11,7 @@ import {
   homeHeaderWrapperCss,
   indiaFlagCss,
   locationWrapperCss,
+  logoStyleCss,
   workPositionWrapperCss
 } from "@/modules/header/styles";
 import Link from "next/link";
@@ -40,12 +41,12 @@ export default function Header() {
 
   return (
     <header css={homeHeaderWrapperCss}>
-      <Logo />
+      <Logo extraStyles={logoStyleCss} />
       <div css={headerTextWrapperCss}>
-        <div css={locationWrapperCss}>
+        <Link href={locationLink} css={locationWrapperCss} rel="noopener noreferrer" target="_blank">
           <span>{city}</span>
           <ImageWrapper src="/images/india-flag-icon.png" alt="India Flag" extraStyles={indiaFlagCss} />
-        </div>
+        </Link>
         <div css={workPositionWrapperCss}>
           <span css={greenBallCss}></span>
           <span>{workText}</span>

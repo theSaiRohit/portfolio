@@ -82,7 +82,6 @@ export const resumeContainerCss = css`
   color: var(--color-bg-black);
   padding: var(--padding-mid);
   border: 2px solid var(--color-highlight);
-  /* overflow: hidden; */
 `;
 
 export const resumeNameCss = css`
@@ -126,6 +125,9 @@ export const resumeWorkImgWrapperCss = css`
   left: 30%;
   top: -10%;
   transform: rotate(12.5deg);
+  ${mediaQuery.tablet} {
+    transform: rotate(12.5deg) translate(-30%, 5%);
+  }
 `;
 
 export const resumeWorkImgCss = css`

@@ -1,8 +1,10 @@
 import NameSvg from "@/components/logo/name-svg";
 import { logoBallCss, logoWrapperCss } from "@/components/logo/styles";
+import { LogoProps } from "@/components/logo/types";
 import { useCallback } from "react";
 
-export default function Logo() {
+export default function Logo(props: LogoProps) {
+  const { extraStyles } = props;
   const logoClickHandler = useCallback(() => {
     window.scrollTo({
       top: 0,
@@ -10,7 +12,7 @@ export default function Logo() {
     });
   }, []);
   return (
-    <div css={logoWrapperCss} onClick={logoClickHandler}>
+    <div css={[logoWrapperCss, extraStyles]} onClick={logoClickHandler}>
       <span css={logoBallCss}></span>
       <NameSvg />
     </div>

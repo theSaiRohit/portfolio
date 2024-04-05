@@ -47,7 +47,7 @@ const lineAnim = (lineNum: number) => css`
 export const leftLinesCss = (num: number) => css`
   ${lineSvgCss}
   transform-origin: bottom right;
-  background: linear-gradient(to left, rgba(45, 213, 68, 0.2), rgba(156, 70, 212, 1));
+  background: linear-gradient(to left, rgba(231, 116, 0, 0.25), rgba(156, 70, 212, 1));
   transform: rotate(calc(4.6 * ${num}deg));
   ${lineAnim(num)}
 `;
@@ -55,7 +55,7 @@ export const leftLinesCss = (num: number) => css`
 export const rightLinesCss = (num: number) => css`
   ${lineSvgCss}
   transform-origin: bottom left;
-  background: linear-gradient(to right, rgba(45, 213, 68, 0.2), rgba(156, 70, 212, 1));
+  background: linear-gradient(to right, rgba(231, 116, 0, 0.25), rgba(156, 70, 212, 1));
   transform: rotate(calc(-4.6 * ${num}deg));
   ${lineAnim(num)}
 `;

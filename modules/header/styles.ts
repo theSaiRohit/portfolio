@@ -15,7 +15,14 @@ export const homeHeaderWrapperCss = css`
   left: 0;
   z-index: 1;
   ${mediaQuery.mobile} {
-    padding: 0 6.5% 0 2.75%;
+    padding: 0 6.5% 0 0%;
+  }
+`;
+
+export const logoStyleCss = css`
+  background-color: red;
+  ${mediaQuery.mobile} {
+    transform: translateX(-12.5px) scale(0.75);
   }
 `;
 
@@ -33,6 +40,12 @@ export const locationWrapperCss = css`
   display: flex;
   align-items: center;
   gap: var(--scrollbar-width);
+  text-decoration: none;
+  color: var(--color-text-default);
+  transition: all 0.3s ease;
+  &:hover {
+    color: var(--color-highlight);
+  }
 `;
 
 export const indiaFlagCss = css`
