@@ -17,7 +17,7 @@ export const blobOneCss = css`
   top: -10%;
   opacity: 0.8;
   right: -5%;
-  background: conic-gradient(rgb(83, 16, 183) 60%, rgb(255, 159, 14) 40%);
+  background: conic-gradient(hsl(264, 100%, 50%) 60%, rgb(218, 194, 255) 40%);
   height: 300px;
   border-radius: 29% 71% 70% 30% / 22% 41% 59% 78%;
   ${mediaQuery.tablet} {
@@ -30,7 +30,7 @@ export const blobTwoCss = css`
   top: 25vh;
   opacity: 0.35;
   left: -200px;
-  background: conic-gradient(#e0d023 60%, #001eff 40%);
+  background: conic-gradient(#b137fc 60%, #0022ff 40%);
   height: 400px;
   border-radius: 60% 40% 30% 70% / 100% 85% 92% 74%;
   ${mediaQuery.tablet} {
@@ -44,7 +44,7 @@ export const blobThreeCss = css`
   top: 60vh;
   opacity: 0.3;
   left: 55vw;
-  background: conic-gradient(rgb(16, 183, 72) 60%, rgb(255, 14, 14));
+  background: conic-gradient(rgba(126, 14, 255, 0.44) 60%, rgb(183, 122, 16));
   height: 400px;
   border-radius: 31% 69% 23% 77% / 66% 18% 82% 34%;
   ${mediaQuery.tablet} {

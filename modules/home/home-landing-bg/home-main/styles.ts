@@ -7,6 +7,7 @@ export const mainCss = css`
   position: absolute;
   top: 0;
   display: flex;
+  background: transparent;
   align-items: center;
   justify-content: center;
   flex-direction: column;

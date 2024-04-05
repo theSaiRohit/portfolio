@@ -30,7 +30,7 @@ export const skillBlobTwoCss = css`
   top: -25%;
   opacity: 0.6;
   right: -5%;
-  background: conic-gradient(rgb(255, 255, 255) 60%, rgb(249, 180, 42) 40%);
+  background: conic-gradient(rgb(83, 16, 183) 60%, rgb(255, 159, 14) 40%);
   height: 250px;
   border-radius: 29% 71% 70% 30% / 22% 41% 59% 78%;
   ${mediaQuery.tablet} {

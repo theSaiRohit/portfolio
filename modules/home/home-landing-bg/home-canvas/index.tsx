@@ -1,7 +1,6 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { useEffect, useMemo, useRef } from "react";
-import { OrbitControls } from "@react-three/drei";
 
 function MovingCube(props: any) {
   const { camera } = useThree();
@@ -13,31 +12,53 @@ function MovingCube(props: any) {
     raX: 0.25,
     raY: 0.25
   });
+  const targetY = useRef<number[]>([]);
+  const particlesNum = useRef(200);
 
   const coordinates = useMemo(() => {
     const coords = [];
-    for (let i = 0; i < 250; i++) {
+
+    for (let i = 0; i < particlesNum.current; i++) {
       const x = Math.random() * 2 - 1;
       const y = Math.random() - 0.5;
       const z = Math.random() - 0.5;
+      const destinationY = Math.random();
+      if (targetY.current) {
+        targetY.current.push(destinationY as number);
+      }
       coords.push(x, y, z);
     }
     return coords;
   }, []);
 
+  const motion = () => {
+    const SPEED = 0.0025;
+
+    for (let j = 0; j < particlesNum.current; j++) {
+      const currentY = coordinates[j * 3 + 1];
+      const step = (0.5 - targetY.current[j] - currentY) * SPEED;
+      coordinates[j * 3 + 1] += step;
+
+      if (Math.abs(0.5 - targetY.current[j] - coordinates[j * 3 + 1]) < 0.01) {
+        targetY.current[j] = Math.random();
+      }
+    }
+
+    bufferGeometryRef.current?.setAttribute("position", new THREE.Float32BufferAttribute(coordinates, 3));
+  };
+
   useEffect(() => {
-    const bufferGeometry = bufferGeometryRef.current;
     camera.position.z = 0.5;
 
-    if (bufferGeometry) {
-      bufferGeometry.setAttribute("position", new THREE.Float32BufferAttribute(coordinates, 3));
+    if (bufferGeometryRef.current) {
+      bufferGeometryRef.current.setAttribute("position", new THREE.Float32BufferAttribute(coordinates, 3));
     }
 
     const ROTATION_ANGLE = 0.125;
 
     const handleMouseMove = (e: MouseEvent) => {
-      const mouseX = (e.clientX / window.innerWidth) * 2 - 1;
-      const mouseY = (e.clientY / window.innerHeight) * 2 - 1;
+      const mouseX = ((e.clientX * 4) / window.innerWidth) * 2 - 1;
+      const mouseY = ((e.clientY * 4) / window.innerHeight) * 2 - 1;
 
       rotationAngle.current.raX = (0.25 - mouseX * ROTATION_ANGLE) as any;
       rotationAngle.current.raY = (0.25 - mouseY * ROTATION_ANGLE) as any;
@@ -51,6 +72,8 @@ function MovingCube(props: any) {
   }, [camera, coordinates]);
 
   useFrame(() => {
+    motion();
+
     const dx = rotationAngle.current.raX - ref.current.rotation.x;
     const dy = rotationAngle.current.raY - ref.current.rotation.y;
 
@@ -61,10 +84,11 @@ function MovingCube(props: any) {
   return (
     <points ref={ref}>
       <bufferGeometry ref={bufferGeometryRef} />
-      <pointsMaterial size={particlesSize.current} color="white" />
+      <pointsMaterial size={particlesSize.current} color="#fa96ff" />
     </points>
   );
 }
+
 export default function HomeParticles() {
   return (
     <Canvas>
