@@ -22,7 +22,7 @@ export const homeHeaderWrapperCss = css`
 export const logoStyleCss = css`
   background-color: red;
   ${mediaQuery.mobile} {
-    transform: translateX(-12.5px) scale(0.75);
+    transform: translateX(-25px) scale(0.75);
   }
 `;
 
