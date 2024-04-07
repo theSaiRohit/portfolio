@@ -1,4 +1,4 @@
-import { mail } from "@/common-content";
+import { mail, twiiterLink } from "@/common-content";
 import Heading from "@/components/heading";
 import LinkCtaBtn from "@/components/link-cta-btn";
 import { workCtaText, worksDescription, worksHeading } from "@/modules/home/home-works/works-intro/content";
@@ -10,7 +10,7 @@ export default function WorksIntro() {
       <div css={workIntroBlobCss}></div>
       <Heading text={worksHeading} />
       <p>{worksDescription}</p>
-      <LinkCtaBtn link={`mailto:${mail}`} text={workCtaText} extraStyles={worksCtaBtnCss} />
+      <LinkCtaBtn link={twiiterLink} text={workCtaText} extraStyles={worksCtaBtnCss} />
     </div>
   );
 }

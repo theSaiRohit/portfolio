@@ -11,7 +11,7 @@ export default function HomePageModule() {
       <HomeLandingBg />
       <HomeWorks />
       <div css={{ overflowX: "hidden" }}>
-        {/* <HomeAbout /> */}
+        <HomeAbout />
         <HomeSkills />
         <HomeResume />
         <HomeExperience />

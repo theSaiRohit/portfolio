@@ -42,3 +42,5 @@ export const navList = [
 ];
 
 export const mail = "sairohit11.s@gmail.com";
+
+export const twiiterLink = "https://twitter.com/SaiRohitS";

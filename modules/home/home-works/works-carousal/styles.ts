@@ -49,7 +49,7 @@ export const workCardCss = css`
     background-color: var(--custom-color);
     z-index: var(--z-low-a);
     filter: blur(100px);
-    opacity: 0.75;
+    opacity: 0.8;
   }
   &:hover {
     &::before {
@@ -99,7 +99,7 @@ export const workTitleWrapperCss = css`
 `;
 
 export const workTitleCss = css`
-  font-weight: 400;
+  font-weight: 500;
   font-size: var(--font-size-icon);
 `;
 

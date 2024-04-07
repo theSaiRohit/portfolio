@@ -28,6 +28,7 @@ export const globalStyles = css`
     --mini-desktop-width: 1200px;
     --tablet-width: 750px;
     --mobile-width: 450px;
+    --para-max-width: 900px;
 
     --z-lowest: -3;
     --z-low-b: -2;

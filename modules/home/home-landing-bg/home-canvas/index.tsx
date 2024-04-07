@@ -9,8 +9,8 @@ function MovingCube(props: any) {
   const bufferGeometryRef = useRef<THREE.BufferGeometry>(null);
   const dampingFactor = useRef(0.025);
   const rotationAngle = useRef({
-    raX: 0.25,
-    raY: 0.25
+    raX: 0.5,
+    raY: 0.5
   });
   const targetY = useRef<number[]>([]);
   const particlesNum = useRef(200);
@@ -57,8 +57,8 @@ function MovingCube(props: any) {
     const ROTATION_ANGLE = 0.125;
 
     const handleMouseMove = (e: MouseEvent) => {
-      const mouseX = ((e.clientX * 2.75) / window.innerWidth) * 2 - 1;
-      const mouseY = ((e.clientY * 2.75) / window.innerHeight) * 2 - 1;
+      const mouseX = ((e.clientX * 4.5) / window.innerWidth) * 2 - 1;
+      const mouseY = ((e.clientY * 4.5) / window.innerHeight) * 2 - 1;
 
       rotationAngle.current.raX = (0.25 - mouseX * ROTATION_ANGLE) as any;
       rotationAngle.current.raY = (0.25 - mouseY * ROTATION_ANGLE) as any;

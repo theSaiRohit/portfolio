@@ -1,4 +1,5 @@
 import ImageWrapper from "@/components/image-wrapper";
+import { workData } from "@/modules/home/home-works/works-carousal/content";
 import {
   workCardCss,
   workCardCtaCss,
@@ -14,25 +15,26 @@ import { Ref, forwardRef } from "react";
 import { BsArrowUpRightCircleFill } from "react-icons/bs";
 
 function WC(_: unknown, ref: Ref<HTMLDivElement>) {
-  const worksMapper = (_: unknown, index: number) => {
+  const worksMapper = (work: (typeof workData)[0], index: number) => {
+    const { siteName, siteImg, siteLink, customColor } = work;
     return (
-      <div key={`works-card-${index}`} css={[workCardCss, { "--custom-color": "hsla(70, 80%, 90%, 1)" }]}>
+      <div key={`works-card-${index}`} css={[workCardCss, { "--custom-color": `${customColor}` }]}>
         <div css={workTitleWrapperCss}>
-          <h3 css={workTitleCss}>Site Name</h3>
+          <h3 css={workTitleCss}>{siteName}</h3>
           <div css={workCtaWrapper}>
-            <Link href="/" css={workCardCtaCss} className="link-wrapper">
+            <Link href={siteLink} css={workCardCtaCss} className="link-wrapper">
               <span>Visit</span>
               <BsArrowUpRightCircleFill css={workCardCtaSvgCss} />
             </Link>
           </div>
         </div>
-        <ImageWrapper alt="website template" src="/images/website-template.webp" extraStyles={workImgCss} />
+        <ImageWrapper alt="website template" src={siteImg} extraStyles={workImgCss} />
       </div>
     );
   };
   return (
     <div css={workCardsWrapperCss} ref={ref}>
-      {Array(5).fill({}).map(worksMapper)}
+      {workData.map(worksMapper)}
     </div>
   );
 }

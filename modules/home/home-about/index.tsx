@@ -1,80 +1,104 @@
+import { mail } from "@/common-content";
 import Heading from "@/components/heading";
-import { logoBallCss } from "@/components/logo/styles";
-import { aboutDesc, aboutHeadingText } from "@/modules/home/home-about/content";
-import InnerSvg from "@/modules/home/home-about/inner-svg";
-import OuterSvg from "@/modules/home/home-about/outer-svg";
+import LinkCtaBtn from "@/components/link-cta-btn";
+import { aboutCtaText, aboutDesc, aboutHeadingText, aboutText } from "@/modules/home/home-about/content";
 import {
-  aboutBallCss,
   aboutBlobOneCss,
+  aboutBtnCss,
   aboutDescCss,
   aboutHeadingCss,
+  aboutLineWrapperCss,
+  aboutLinesCss,
   aboutWrapperCss,
-  svgWrapperCss
+  dummyLinesCss
 } from "@/modules/home/home-about/styles";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function HomeAbout() {
-  const svgWrapperRef = useRef<HTMLDivElement>(null);
+  const aboutLinesWrapperRef = useRef<HTMLDivElement>(null);
+  const dummyLinesRef = useRef<HTMLDivElement>(null);
+  const [content, setContent] = useState<string[]>([]);
+
   useEffect(() => {
-    const svgWrapper = svgWrapperRef.current;
-    if (svgWrapper) {
-      const svgsArray = Array.from(svgWrapper.querySelectorAll("svg"));
+    const dummyPara = dummyLinesRef.current;
+    const source = dummyPara?.firstChild;
 
-      const svgRotateScrollHandler = (target: Element) => {
-        if (target) {
-          const { top } = target.getBoundingClientRect();
-          if (target.classList.contains("outer-svg")) {
-            if (top > -1 * window.innerHeight) {
-              (target as HTMLElement).style.transform = `translate(-50%, -50%) rotate(-${
-                45 - (50 * top) / innerHeight
-              }deg)`;
-            }
-          } else {
-            if (top > -1 * window.innerHeight) {
-              (target as HTMLElement).style.transform = `translate(-50%, -50%) rotate(-${
-                60 + (50 * top) / innerHeight
-              }deg)`;
-            }
-          }
+    const textContent = source?.textContent;
+    let range = new Range();
+    let lines = [];
+    let lineCharacters = [];
+
+    if (textContent) {
+      for (let i = 0; i < textContent.length; i++) {
+        range.setStart(source, 0);
+        range.setEnd(source, i + 1);
+        let lineIndex = range.getClientRects().length - 1;
+        if (!lines[lineIndex]) {
+          lines.push((lineCharacters = []));
         }
-      };
-
-      const svgObvOptions: IntersectionObserverInit = {
-        root: document,
-        threshold: 0.15
-      };
-
-      const svgObvCallback: IntersectionObserverCallback = (entries) => {
-        for (const entry of entries) {
-          const { isIntersecting, target } = entry;
-          if (isIntersecting) {
-            addEventListener("scroll", () => svgRotateScrollHandler(target));
-          } else {
-            removeEventListener("scroll", () => svgRotateScrollHandler(target));
-          }
-        }
-      };
-
-      const svgObserver: IntersectionObserver = new IntersectionObserver(svgObvCallback, svgObvOptions);
-
-      for (const svg of svgsArray) {
-        svgObserver.observe(svg);
+        lineCharacters.push(textContent.charAt(i));
       }
+    }
+
+    lines = lines.map(function operator(characters) {
+      return characters.join("").trim();
+    });
+    setContent(lines);
+  }, []);
+
+  useEffect(() => {
+    const linesContainer = aboutLinesWrapperRef.current;
+
+    if (linesContainer) {
+      const aboutLinesOptions: IntersectionObserverInit = {
+        root: document,
+        threshold: 0.85
+      };
+      const aboutLinesCallback: IntersectionObserverCallback = (entries) => {
+        for (const entry of entries) {
+          const { boundingClientRect, target } = entry;
+          const { top, height } = boundingClientRect;
+          const aboutLines = Array.from(target.querySelectorAll(".about-line"));
+          for (const aboutLine of aboutLines) {
+            if (top >= innerHeight - 0.9 * height) {
+              aboutLine?.classList.remove("active");
+            }
+            if (entry.isIntersecting) {
+              aboutLine?.classList.add("active");
+            }
+          }
+        }
+      };
+      const aboutLinesObserver = new IntersectionObserver(aboutLinesCallback, aboutLinesOptions);
+      aboutLinesObserver.observe(linesContainer);
       return () => {
-        svgObserver.disconnect();
+        aboutLinesObserver.disconnect();
       };
     }
   }, []);
+
+  const aboutDescMapper = (lines: string, index: number) => {
+    return (
+      <div key={`about-line-${index}`} css={aboutLineWrapperCss}>
+        <p css={aboutLinesCss(index)} className="about-line">
+          {lines}
+        </p>
+      </div>
+    );
+  };
+
   return (
     <section css={aboutWrapperCss}>
       <div css={aboutBlobOneCss}></div>
       <Heading text={aboutHeadingText} extraStyles={aboutHeadingCss} />
-      <p css={aboutDescCss}>{aboutDesc}</p>
-      <div css={svgWrapperCss} ref={svgWrapperRef}>
-        <OuterSvg />
-        <InnerSvg />
-        <div css={[logoBallCss, aboutBallCss]}></div>
+      <div css={aboutDescCss} ref={aboutLinesWrapperRef}>
+        {content.map(aboutDescMapper)}
+        <p css={dummyLinesCss} ref={dummyLinesRef}>
+          {aboutText}
+        </p>
       </div>
+
+      <LinkCtaBtn link={`mailto:${mail}`} text={aboutCtaText} extraStyles={aboutBtnCss} />
     </section>
   );
 }

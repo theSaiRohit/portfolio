@@ -6,7 +6,7 @@ export const aboutWrapperCss = css`
   display: flex;
   flex-direction: column;
   gap: var(--padding-dw);
-  padding-top: calc(1.5 * var(--padding-dw));
+  padding: calc(1.5 * var(--padding-dw)) 0;
   position: relative;
   ${mediaQuery.tablet} {
     padding-top: var(--padding-mw);
@@ -38,36 +38,62 @@ export const aboutHeadingCss = css`
 `;
 
 export const aboutDescCss = css`
-  width: 50%;
-  font-size: var(--font-size-small);
-  color: var(--color-highlight);
+  width: fit-content;
   margin: auto;
-  line-height: calc(var(--padding-small) + var(--padding-mid));
-  text-align: justify;
-  hyphens: auto;
   ${mediaQuery.tablet} {
-    width: 90%;
+    margin: var(--padding-mw) auto;
+  }
+`;
+
+export const aboutLineWrapperCss = css`
+  overflow: hidden;
+`;
+
+export const dummyLinesCss = css`
+  font-size: calc(var(--font-size-large) / 2);
+  width: 60vw;
+  max-width: var(--para-max-width);
+  line-height: var(--bor-rad-large);
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  user-select: none;
+  opacity: 0;
+  ${mediaQuery.miniDesktop} {
+    font-size: var(--font-size-small);
+    line-height: calc(var(--padding-mid) + var(--padding-small));
+  }
+  ${mediaQuery.tablet} {
     --font-size-small: 1rem;
-    line-height: calc(1.75 * var(--padding-small));
-    padding-top: var(--padding-mw);
+    line-height: var(--line-height);
+    width: 90%;
   }
 `;
 
-export const svgWrapperCss = css`
+export const aboutLinesCss = (delay: number) => css`
   position: relative;
-  height: 100vh;
+  z-index: var(--z-high);
+  color: var(--color-text-gray);
+  font-size: calc(var(--font-size-large) / 2);
+  line-height: var(--bor-rad-large);
+  transform: translateY(100%);
+  transition: all 0.3s;
+  &.active {
+    transition: all 0.3s ease ${delay * 0.075 + "s"};
+    transform: translateY(0%);
+  }
+  ${mediaQuery.miniDesktop} {
+    font-size: var(--font-size-small);
+    line-height: calc(var(--padding-mid) + var(--padding-small));
+  }
   ${mediaQuery.tablet} {
-    height: 75vh;
+    --font-size-small: 1rem;
+    line-height: var(--line-height);
   }
 `;
 
-export const aboutBallCss = css`
-  height: 20vh;
-  aspect-ratio: 1;
-  box-shadow: inset -15px -25px 25px 0 hsla(30, 100%, 45.3%, 0.25), inset 0 0 12px 0 hsla(30, 100%, 45.3%, 0.25);
-  z-index: 0;
-  ${mediaQuery.tablet} {
-    height: 10vh;
-    box-shadow: inset -5px -7.5px 15px 0 hsla(30, 100%, 45.3%, 0.5), inset 0 0 5px 0 hsla(30, 100%, 45.3%, 0.25);
-  }
+export const aboutBtnCss = css`
+  margin: auto;
 `;

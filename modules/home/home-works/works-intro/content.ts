@@ -1,4 +1,4 @@
 export const worksHeading = "Selected Works";
 export const worksDescription =
-  "I've played a key role in developing impactful projects. Here's a curated selection showcasing my expertise and the achieved results.";
-export const workCtaText = "Contact";
+  "Here's a curated selection of my projects, highlighting essential qualities for an outstanding and stellar website.";
+export const workCtaText = "Connect";
