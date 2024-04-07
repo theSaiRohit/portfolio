@@ -7,7 +7,7 @@ import HomeWorks from "@/modules/home/home-works";
 
 export default function HomePageModule() {
   return (
-    <>
+    <div css={{ paddingTop: "100vh" }}>
       <HomeLandingBg />
       <HomeWorks />
       <div css={{ overflowX: "hidden" }}>
@@ -16,6 +16,6 @@ export default function HomePageModule() {
         <HomeResume />
         <HomeExperience />
       </div>
-    </>
+    </div>
   );
 }

@@ -13,7 +13,7 @@ export default function Error404Module() {
       <NoiseTexture />
       <MessageStrip rotate="-30deg" zIndex="-1" top="20%" textOne={errorName} textTwo={errorMsg} />
       <MessageStrip rotate="10deg" zIndex="0" top="70%" textOne={errorName} textTwo={errorMsg} />
-      <LinkCtaBtn link="/" text={errorCta} />
+      <LinkCtaBtn link="/" text={errorCta} target={false} />
     </section>
   );
 }

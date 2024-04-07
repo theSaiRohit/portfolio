@@ -81,7 +81,7 @@ export const aboutLinesCss = (delay: number) => css`
   transform: translateY(100%);
   transition: all 0.3s;
   &.active {
-    transition: all 0.3s ease ${delay * 0.075 + "s"};
+    transition: all 0.3s ease ${delay * 0.1 + "s"};
     transform: translateY(0%);
   }
   ${mediaQuery.miniDesktop} {

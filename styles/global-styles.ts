@@ -56,7 +56,6 @@ export const globalStyles = css`
   #__next {
     color: var(--color-text-default);
     letter-spacing: 1px;
-    padding-top: 100vh;
   }
   ::selection {
     color: var(--color-bg-black);

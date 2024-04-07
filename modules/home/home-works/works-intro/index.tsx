@@ -10,7 +10,7 @@ export default function WorksIntro() {
       <div css={workIntroBlobCss}></div>
       <Heading text={worksHeading} />
       <p>{worksDescription}</p>
-      <LinkCtaBtn link={twiiterLink} text={workCtaText} extraStyles={worksCtaBtnCss} />
+      <LinkCtaBtn link={twiiterLink} text={workCtaText} extraStyles={worksCtaBtnCss} target />
     </div>
   );
 }
