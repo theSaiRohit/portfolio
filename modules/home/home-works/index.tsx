@@ -83,7 +83,7 @@ export default function HomeWorks() {
     }
   }, [containerHeight]);
   return (
-    <section css={workWrapperCss} ref={worksWrapperRef}>
+    <section css={workWrapperCss} ref={worksWrapperRef} className="scroll-section">
       <div css={worksStripWrapperCss}>
         <MessageStrip
           textOne={workStripMsg.split(" ")[0]}

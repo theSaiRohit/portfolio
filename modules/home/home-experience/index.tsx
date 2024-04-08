@@ -71,7 +71,7 @@ export default function HomeExperience() {
     );
   };
   return (
-    <section css={experienceWrapperCss}>
+    <section css={experienceWrapperCss} className="scroll-section">
       <MessageStrip
         rotate="5deg"
         top="var(--padding-mw)"

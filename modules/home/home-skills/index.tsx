@@ -6,7 +6,7 @@ import { homeSkillsWrapperCss, skillBlobOneCss, skillBlobTwoCss } from "@/module
 
 export default function HomeSkills() {
   return (
-    <section css={homeSkillsWrapperCss}>
+    <section css={homeSkillsWrapperCss} className="scroll-section">
       <Heading text={skillsHeadingText} extraStyles={aboutHeadingCss} />
       <div css={skillBlobOneCss}></div>
       <div css={skillBlobTwoCss}></div>

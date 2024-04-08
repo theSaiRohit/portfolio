@@ -3,7 +3,7 @@ import { mediaQuery } from "@/styles/media-queries";
 import { css } from "@emotion/react";
 
 export const homeSkillsWrapperCss = css`
-  margin-top: var(--padding-dw);
+  padding-top: var(--padding-dw);
   margin-bottom: calc(3 * var(--padding-dw));
   position: relative;
   ${mediaQuery.tablet} {

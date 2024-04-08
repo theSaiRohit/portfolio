@@ -1,7 +1,7 @@
 import { mail } from "@/common-content";
 import Heading from "@/components/heading";
 import LinkCtaBtn from "@/components/link-cta-btn";
-import { aboutCtaText, aboutDesc, aboutHeadingText, aboutText } from "@/modules/home/home-about/content";
+import { aboutCtaText, aboutHeadingText, aboutText } from "@/modules/home/home-about/content";
 import {
   aboutBlobOneCss,
   aboutBtnCss,
@@ -48,6 +48,7 @@ export default function HomeAbout() {
 
   useEffect(() => {
     const linesContainer = aboutLinesWrapperRef.current;
+    setTimeout(() => console.log(linesContainer?.parentElement?.getBoundingClientRect().top), 100);
 
     if (linesContainer) {
       const aboutLinesOptions: IntersectionObserverInit = {
@@ -88,7 +89,7 @@ export default function HomeAbout() {
   };
 
   return (
-    <section css={aboutWrapperCss}>
+    <section css={aboutWrapperCss} className="scroll-section">
       <div css={aboutBlobOneCss}></div>
       <Heading text={aboutHeadingText} extraStyles={aboutHeadingCss} />
       <div css={aboutDescCss} ref={aboutLinesWrapperRef}>

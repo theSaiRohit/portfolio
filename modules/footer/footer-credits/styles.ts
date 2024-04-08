@@ -14,4 +14,8 @@ export const footerCreditsWrapperCss = css`
 export const creditCss = css`
   text-decoration: none;
   color: var(--color-highlight);
+  &:hover {
+    text-underline-offset: var(--scrollbar-width);
+    text-decoration: underline;
+  }
 `;

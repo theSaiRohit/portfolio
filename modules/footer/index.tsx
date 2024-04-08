@@ -9,7 +9,7 @@ import { footerBlobOneCss, footerWrapperCss } from "@/modules/footer/styles";
 
 export default function Footer() {
   return (
-    <footer css={footerWrapperCss}>
+    <footer css={footerWrapperCss} className="scroll-section">
       <NoiseTexture />
       <div css={footerBlobOneCss} />
       <FooterMain />

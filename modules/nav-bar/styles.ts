@@ -24,19 +24,23 @@ export const navItemWrapperCss = (char: number) => css`
   color: var(--color-text-default);
   padding: var(--padding-mid) var(--padding-small);
   position: relative;
+  cursor: pointer;
   &:nth-of-type(1) {
     width: calc(55px + var(--padding-small) + var(--scrollbar-width));
   }
   &:nth-of-type(2) {
-    width: calc(48px + var(--padding-small) + var(--scrollbar-width));
+    width: calc(55px + var(--padding-small) + var(--scrollbar-width));
   }
   &:nth-of-type(3) {
-    width: calc(98px + var(--padding-small) + var(--scrollbar-width));
+    width: calc(48px + var(--padding-small) + var(--scrollbar-width));
   }
   &:nth-of-type(4) {
     width: calc(70px + var(--padding-small) + var(--scrollbar-width));
   }
   &:nth-of-type(5) {
+    width: calc(98px + var(--padding-small) + var(--scrollbar-width));
+  }
+  &:nth-of-type(6) {
     width: calc(71px + var(--padding-small) + var(--scrollbar-width));
   }
 `;

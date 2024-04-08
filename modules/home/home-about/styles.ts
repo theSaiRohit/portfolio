@@ -6,6 +6,7 @@ export const aboutWrapperCss = css`
   display: flex;
   flex-direction: column;
   gap: var(--padding-dw);
+  overflow-x: hidden;
   padding: calc(1.5 * var(--padding-dw)) 0;
   position: relative;
   ${mediaQuery.tablet} {

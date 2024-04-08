@@ -27,5 +27,9 @@ export default function FooterNav() {
       </Link>
     );
   };
-  return <nav css={footerNavCss}>{navList.map(footerNavMapper)}</nav>;
+  return (
+    <nav css={footerNavCss}>
+      {navList.filter((thing: (typeof navList)[0]) => thing.title != "Contact").map(footerNavMapper)}
+    </nav>
+  );
 }

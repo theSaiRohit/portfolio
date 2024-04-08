@@ -26,7 +26,7 @@ export const globalStyles = css`
     --line-height: 1.75rem;
     --gutter-padding: 5%;
     --mini-desktop-width: 1200px;
-    --tablet-width: 750px;
+    --tablet-width: 758px;
     --mobile-width: 450px;
     --para-max-width: 900px;
 
@@ -64,7 +64,6 @@ export const globalStyles = css`
   body {
     background-color: var(--color-bg);
     overflow-x: hidden;
-
     &::-webkit-scrollbar {
       width: var(--scrollbar-width);
     }

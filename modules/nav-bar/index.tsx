@@ -1,18 +1,40 @@
 import { navList } from "@/common-content";
 import useMousePos from "@/hooks/use-mouse-pos";
 import { navItemCss, navItemWrapperCss, navWrapperCss } from "@/modules/nav-bar/styles";
-import Link from "next/link";
+import { useCallback, useEffect, useRef } from "react";
 
 export default function NavBar() {
   const containerRef = useMousePos();
-  const navListMapper = (navItem: (typeof navList)[0]) => {
+  const sectionTopVals = useRef<number[]>([]);
+
+  useEffect(() => {
+    if (innerHeight < 758) return;
+    const scrollSections = Array.from(document.querySelectorAll(".scroll-section"));
+    const topCalcTimeout = setTimeout(() => {
+      for (const scrollSection of scrollSections) {
+        sectionTopVals.current.push(scrollSection.getBoundingClientRect().top);
+      }
+    }, 100);
+    topCalcTimeout;
+    return () => clearTimeout(topCalcTimeout);
+  });
+
+  const onClickHandler = useCallback((index: number) => {
+    return () => {
+      window.scrollTo({
+        behavior: "smooth",
+        top: sectionTopVals.current[index]
+      });
+    };
+  }, []);
+  const navListMapper = (navItem: (typeof navList)[0], index: number) => {
     const { title } = navItem;
     return (
-      <Link href="/" key={`nav-item-${title}`} css={navItemWrapperCss(title.length)}>
+      <div key={`nav-item-${title}`} css={navItemWrapperCss(title.length)} onClick={onClickHandler(index)}>
         <div className="link-wrapper" css={navItemCss}>
           <span>{title}</span>
         </div>
-      </Link>
+      </div>
     );
   };
   return (

@@ -30,7 +30,7 @@ import Link from "next/link";
 
 export default function HomeResume() {
   return (
-    <section css={homeResumeWrapperCss}>
+    <section css={homeResumeWrapperCss} className="scroll-section">
       <Heading text={resumeHeading} extraStyles={commonHeaderCss} />
       <div css={resumeBodyCss}>
         <div css={resumeCardsWrapperCss}>
