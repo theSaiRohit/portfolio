@@ -88,7 +88,6 @@ export default function SkillsCarousal() {
     if (container) {
       const { left } = container.getBoundingClientRect();
       const downHandler = (event: TouchEvent) => {
-        container.style.cursor = "grabbing";
         pressed = true;
         startVal.current = event.touches[0].clientX - left;
         if (ball) {
@@ -96,7 +95,6 @@ export default function SkillsCarousal() {
         }
       };
       const upHandler = () => {
-        container.style.cursor = "grab";
         pressed = false;
         if (ball) {
           ball.style.transform = "translate(-50%, 50%) scale(1)";

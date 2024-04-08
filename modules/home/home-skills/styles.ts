@@ -7,8 +7,8 @@ export const homeSkillsWrapperCss = css`
   margin-bottom: calc(3 * var(--padding-dw));
   position: relative;
   ${mediaQuery.tablet} {
-    margin-top: var(--padding-mw);
     margin-bottom: var(--padding-dw);
+    padding-top: var(--padding-mw);
   }
 `;
 

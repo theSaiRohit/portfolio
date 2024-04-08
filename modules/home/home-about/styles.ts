@@ -10,7 +10,7 @@ export const aboutWrapperCss = css`
   padding: calc(1.5 * var(--padding-dw)) 0;
   position: relative;
   ${mediaQuery.tablet} {
-    padding-top: var(--padding-mw);
+    padding: var(--padding-mw) 0;
     gap: 0;
   }
 `;

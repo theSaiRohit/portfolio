@@ -139,6 +139,7 @@ export const workImgCss = css`
   overflow: hidden;
   img {
     object-fit: cover;
+    object-position: top;
   }
   ${mediaQuery.mobile} {
     border-top-right-radius: var(--scrollbar-width);

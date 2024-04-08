@@ -25,6 +25,10 @@ export const skillsTitleCss = css`
   z-index: 10;
   transition: opacity 0.5s ease;
   opacity: 0;
+  ${mediaQuery.tablet} {
+    font-size: var(--font-size-icon);
+    bottom: calc(1.75 * var(--bor-rad-large));
+  }
 `;
 
 export const skillBallCss = css`
@@ -78,7 +82,7 @@ export const skillsCarousalWrapperCss = css`
   align-items: center;
   overflow: hidden;
   ${mediaQuery.tablet} {
-    height: 45vh;
+    height: 50vh;
   }
 `;
 
@@ -91,7 +95,8 @@ export const skillsCarousalContainerCss = css`
   cursor: grab;
   transition: transform 1s ease;
   ${mediaQuery.tablet} {
-    height: 90vw;
+    margin-top: var(--padding-dw);
+    height: 150vw;
   }
 `;
 

@@ -11,7 +11,8 @@ export const experienceWrapperCss = css`
   ${mediaQuery.tablet} {
     min-height: fit-content;
     gap: var(--padding-mw);
-    padding: calc(2 * var(--padding-dw)) 0;
+    padding-top: calc(2 * var(--padding-dw));
+    padding-bottom: var(--padding-dw);
   }
 `;
 
