@@ -41,38 +41,27 @@ export default function HomeWorks() {
   }, []);
   useEffect(() => {
     if (window.innerWidth <= 1200) return;
+
     const container = worksContainerRef.current;
     const slidingContainer = slidingContainerRef.current;
     const worksCarousal = worksCarousalRef.current;
     const slider = sliderRef.current;
     const topVal = slider?.getBoundingClientRect().top;
+
     if (worksCarousal) {
       const { width, left } = worksCarousal.getBoundingClientRect();
       setContainerHeight(width - (window.innerWidth - left) + innerHeight);
     }
+
     if (container) {
       container.style.height = `${containerHeight}px`;
     }
-    const lerp = (start: number, end: number, time: number) => {
-      return start * (1 - time) + end * time;
-    };
 
     if (slidingContainer) {
-      let currentScroll = slidingContainer.scrollLeft;
-
       const handleScroll = () => {
         const { scrollY } = window;
         const targetScroll = Math.max(0, scrollY - (topVal ?? 0));
-
-        const smoothScroll = () => {
-          currentScroll = lerp(currentScroll, targetScroll, 0.1);
-          slidingContainer.scrollLeft = currentScroll;
-          if (Math.abs(currentScroll - targetScroll) > 0.5) {
-            requestAnimationFrame(smoothScroll);
-          }
-        };
-
-        smoothScroll();
+        slidingContainer.scrollLeft = targetScroll;
       };
 
       window.addEventListener("scroll", handleScroll);
@@ -82,6 +71,7 @@ export default function HomeWorks() {
       };
     }
   }, [containerHeight]);
+
   return (
     <section css={workWrapperCss} ref={worksWrapperRef} className="scroll-section">
       <div css={worksStripWrapperCss}>
