@@ -65,7 +65,7 @@ export const globalStyles = css`
     background-color: var(--color-bg);
     overflow-x: hidden;
     &::-webkit-scrollbar {
-      width: var(--scrollbar-width);
+      width: 0;
     }
     &::-webkit-scrollbar-thumb {
       background-color: var(--color-highlight);

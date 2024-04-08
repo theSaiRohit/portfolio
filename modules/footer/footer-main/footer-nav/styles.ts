@@ -25,6 +25,7 @@ export const gridItemsValCss = (row: string, col: string) => css`
 
 export const footerNavLinkCss = css`
   display: flex;
+  cursor: pointer;
   flex-direction: column;
   text-decoration: none;
   gap: calc(2 * var(--scrollbar-width));
@@ -61,5 +62,8 @@ export const footerNavTitleCss = css`
     height: 100%;
     width: 100%;
     color: var(--color-highlight);
+  }
+  ${mediaQuery.tablet} {
+    position: static;
   }
 `;

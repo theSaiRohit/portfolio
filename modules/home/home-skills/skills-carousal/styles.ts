@@ -15,6 +15,18 @@ export const skillBlobTwoCss = css`
   }
 `;
 
+export const skillsTitleCss = css`
+  position: absolute;
+  color: var(--color-text-gray);
+  font-size: var(--font-size-mid);
+  left: 50%;
+  bottom: 15vw;
+  transform: translate(-50%, 50%);
+  z-index: 10;
+  transition: opacity 0.5s ease;
+  opacity: 0;
+`;
+
 export const skillBallCss = css`
   border-radius: 50%;
   width: 15vw;
@@ -72,7 +84,7 @@ export const skillsCarousalWrapperCss = css`
 
 export const skillsCarousalContainerCss = css`
   position: relative;
-  height: 65vw;
+  height: 75vw;
   aspect-ratio: 1;
   border-radius: 50%;
   top: 50%;
@@ -110,14 +122,12 @@ export const skillItemContainerCss = css`
   display: grid;
   place-items: center;
   font-size: 2rem;
-  transform: translateY(-50%);
 `;
 
 export const skillsImgCss = css`
   height: 60%;
   aspect-ratio: 1;
   overflow: hidden;
-  border-radius: 50%;
   img {
     object-fit: cover;
   }

@@ -48,7 +48,6 @@ export default function HomeAbout() {
 
   useEffect(() => {
     const linesContainer = aboutLinesWrapperRef.current;
-    setTimeout(() => console.log(linesContainer?.parentElement?.getBoundingClientRect().top), 100);
 
     if (linesContainer) {
       const aboutLinesOptions: IntersectionObserverInit = {
