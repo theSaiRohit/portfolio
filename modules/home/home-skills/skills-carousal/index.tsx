@@ -13,36 +13,32 @@ import { useEffect, useRef } from "react";
 
 export default function SkillsCarousal() {
   const skillsCarousalContainerRef = useRef<HTMLDivElement>(null);
-  const pressRef = useRef(false);
-  const startVal = useRef(0);
-  const angleRef = useRef(0);
   const ballRef = useRef<HTMLDivElement>(null);
   const skillTitleContainer = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    if (innerHeight < 758) return;
-    let pressed = pressRef.current;
+    let pressed = false;
     const container = skillsCarousalContainerRef.current;
     const ball = ballRef.current;
     const titleContainer = skillTitleContainer.current;
     const titleArray = Array.from(titleContainer?.children ?? []);
-
+    let startVal = 0;
+    let angle = 0;
     if (container) {
       const { left } = container.getBoundingClientRect();
-      const downHandler = (event: MouseEvent) => {
+
+      const downHandler = (e: TouchEvent | MouseEvent) => {
         container.style.cursor = "grabbing";
         pressed = true;
-        startVal.current = event.x - left;
+        startVal = ((e as TouchEvent)?.touches?.[0]?.clientX ?? (e as MouseEvent)?.x ?? left) - left;
         if (ball) {
           ball.style.transform = "translate(-50%, 50%) scale(0.8)";
         }
       };
-      const upHandler = () => {
+      const upHandler = (e: TouchEvent | MouseEvent) => {
         container.style.cursor = "grab";
         pressed = false;
-        if (ball) {
-          ball.style.transform = "translate(-50%, 50%) scale(1)";
-        }
-        const rotateVal = (container.style.getPropertyValue("transform") as any).match(/-?\d+/)[0];
+        const rotateVal = (container.style.getPropertyValue("transform") as any).match(/-?\d+/)?.[0];
         const index =
           rotateVal > 0
             ? (rotateVal / 45) % skillData.length === 0
@@ -53,16 +49,21 @@ export default function SkillsCarousal() {
           (titleElem as HTMLElement)?.style.setProperty("opacity", "0");
         }
         (titleArray[index] as HTMLElement)?.style.setProperty("opacity", "1");
-      };
-      const moveHandler = (event: MouseEvent) => {
-        if (!pressed) return;
-        else {
-          const { x } = event;
-          angleRef.current = angleRef.current + (x - startVal.current - left);
-          const rotVal = Math.ceil(angleRef.current / 2000) * 45;
-          container.style.transform = `rotate(${rotVal}deg)`;
+        if (ball) {
+          ball.style.transform = "translate(-50%, 50%) scale(1)";
         }
       };
+      const moveHandler = (e: TouchEvent | MouseEvent) => {
+        if (!pressed) return;
+        const { clientX, x } = ((e as TouchEvent)?.touches?.[0] ?? (e as MouseEvent) ?? ({} as never)) as any;
+        angle = angle + ((clientX ?? x ?? startVal + left) - startVal - left);
+        const rotVal = Math.ceil(angle / 2000) * 45;
+        container.style.transform = `rotate(${rotVal}deg)`;
+      };
+      container.addEventListener("touchstart", downHandler);
+      container.addEventListener("touchend", upHandler);
+      container.addEventListener("touchmove", moveHandler);
+      container.addEventListener("touchcancel", upHandler);
 
       container.addEventListener("mousedown", downHandler);
       container.addEventListener("mouseup", upHandler);
@@ -70,67 +71,15 @@ export default function SkillsCarousal() {
       container.addEventListener("mouseleave", upHandler);
 
       return () => {
-        container.removeEventListener("mousedown", downHandler);
-        container.removeEventListener("mouseup", upHandler);
-        container.removeEventListener("mousemove", moveHandler);
-        container.removeEventListener("mouseleave", upHandler);
-      };
-    }
-  });
-  useEffect(() => {
-    if (innerHeight > 758) return;
-    let pressed = pressRef.current;
-    const container = skillsCarousalContainerRef.current;
-    const ball = ballRef.current;
-    const titleContainer = skillTitleContainer.current;
-    const titleArray = Array.from(titleContainer?.children ?? []);
-
-    if (container) {
-      const { left } = container.getBoundingClientRect();
-      const downHandler = (event: TouchEvent) => {
-        pressed = true;
-        startVal.current = event.touches[0].clientX - left;
-        if (ball) {
-          ball.style.transform = "translate(-50%, 50%) scale(0.8)";
-        }
-      };
-      const upHandler = () => {
-        pressed = false;
-        if (ball) {
-          ball.style.transform = "translate(-50%, 50%) scale(1)";
-        }
-        const rotateVal = (container.style.getPropertyValue("transform") as any).match(/-?\d+/)[0];
-        const index =
-          rotateVal > 0
-            ? (rotateVal / 45) % skillData.length === 0
-              ? 0
-              : skillData.length - ((rotateVal / 45) % skillData.length)
-            : (-1 * (rotateVal / 45)) % skillData.length;
-        for (const titleElem of titleArray) {
-          (titleElem as HTMLElement)?.style.setProperty("opacity", "0");
-        }
-        (titleArray[index] as HTMLElement)?.style.setProperty("opacity", "1");
-      };
-      const moveHandler = (event: TouchEvent) => {
-        if (!pressed) return;
-        else {
-          const { clientX } = event.touches[0];
-          angleRef.current = angleRef.current + (clientX - startVal.current - left);
-          const rotVal = Math.ceil(angleRef.current / 2000) * 45;
-          container.style.transform = `rotate(${rotVal}deg)`;
-        }
-      };
-
-      container.addEventListener("touchstart", downHandler);
-      container.addEventListener("touchend", upHandler);
-      container.addEventListener("touchmove", moveHandler);
-      container.addEventListener("touchcancel", upHandler);
-
-      return () => {
         container.removeEventListener("touchstart", downHandler);
         container.removeEventListener("touchend", upHandler);
         container.removeEventListener("touchmove", moveHandler);
         container.removeEventListener("touchcancel", upHandler);
+
+        container.removeEventListener("mousedown", downHandler);
+        container.removeEventListener("mouseup", upHandler);
+        container.removeEventListener("mousemove", moveHandler);
+        container.removeEventListener("mouseleave", upHandler);
       };
     }
   }, []);
