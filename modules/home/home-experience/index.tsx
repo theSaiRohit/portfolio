@@ -1,6 +1,6 @@
 import Heading from "@/components/heading";
 import MessageStrip from "@/components/message-strip";
-import { experienceHeading } from "@/modules/home/home-experience/content";
+import { experienceData, experienceHeading } from "@/modules/home/home-experience/content";
 import {
   experienceBlobOneCss,
   experienceBlobTwoCss,
@@ -52,20 +52,21 @@ export default function HomeExperience() {
     }
   }, []);
 
-  const experienceMapper = (_: unknown, index: number) => {
+  const experienceMapper = (data: (typeof experienceData)[0], index: number) => {
+    const { company, duration, role, type } = data;
     return (
       <div key={`exp-${index}`} css={experienceCardCss}>
         <div css={experiencePositionWrapperCss} className="exp-title">
           <h3 css={experiencePositionCss} className="exp-header">
-            <span className="exp-header-span" css={experiencePosSpanCss} data-text="Frontend Developer">
-              Frontend Developer
+            <span className="exp-header-span" css={experiencePosSpanCss} data-text={role}>
+              {role}
             </span>
           </h3>
-          <span>Krishaka Argow</span>
+          <span>{company}</span>
         </div>
         <div css={experienceTypeWrapperCss} className="exp-type">
-          <span>January 2022 - September 2023</span>
-          <span>Remote</span>
+          <span>{duration}</span>
+          <span>{type}</span>
         </div>
       </div>
     );
@@ -89,7 +90,7 @@ export default function HomeExperience() {
       <span css={[blobCss, experienceBlobOneCss]}></span>
       <span css={[blobCss, experienceBlobTwoCss]}></span>
       <Heading text={experienceHeading} extraStyles={commonHeaderCss} />
-      <div ref={expCardsContainerRef}>{Array(4).fill({}).map(experienceMapper)}</div>
+      <div ref={expCardsContainerRef}>{experienceData.map(experienceMapper)}</div>
     </section>
   );
 }

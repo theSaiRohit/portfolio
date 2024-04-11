@@ -13,9 +13,29 @@ export const navWrapperCss = css`
   bottom: 4vh;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
+  z-index: var(--z-high);
   ${mediaQuery.tablet} {
-    display: none;
+    background-color: var(--color-bg-black);
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    flex-direction: column;
+    height: 100%;
+    top: 0;
+    justify-content: center;
+    padding-left: calc(2 * var(--gutter-padding));
+    gap: var(--padding-mid);
+    left: -100%;
+    transition: left 0.3s ease;
+    transform: translateX(0);
+    &.nav-active {
+      left: 0;
+    }
+  }
+  ${mediaQuery.mobileLandscape} {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
   }
 `;
 

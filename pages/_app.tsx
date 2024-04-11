@@ -1,3 +1,4 @@
+import GlobalContextProvider from "@/context/global-context/context-provider";
 import Footer from "@/modules/footer";
 import Header from "@/modules/header";
 import NavBar from "@/modules/nav-bar";
@@ -8,7 +9,7 @@ import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <GlobalContextProvider>
       <Head>
         <title>Sai Rohit</title>
       </Head>
@@ -17,6 +18,6 @@ export default function App({ Component, pageProps }: AppProps) {
       <NavBar />
       <Component {...pageProps} />
       <Footer />
-    </>
+    </GlobalContextProvider>
   );
 }

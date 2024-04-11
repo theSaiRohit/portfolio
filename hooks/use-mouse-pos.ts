@@ -4,6 +4,7 @@ export default function useMousePos() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (innerHeight < 758) return;
     const linksWrapper = containerRef.current;
     const linksArray: HTMLAnchorElement[] = Array.from(linksWrapper?.querySelectorAll(".link-wrapper") ?? []);
     const mouseMoveHandler = (e: MouseEvent) => {

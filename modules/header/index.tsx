@@ -1,12 +1,10 @@
-import { navList } from "@/common-content";
 import ImageWrapper from "@/components/image-wrapper";
 import Logo from "@/components/logo";
+import GlobalContext from "@/context/global-context/global-context";
 import { city, locationLink, workText } from "@/modules/header/content";
 import {
   greenBallCss,
   hamburgerCss,
-  headerBavItemCss,
-  headerNavCss,
   headerTextWrapperCss,
   homeHeaderWrapperCss,
   indiaFlagCss,
@@ -15,28 +13,17 @@ import {
   workPositionWrapperCss
 } from "@/modules/header/styles";
 import Link from "next/link";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 
 export default function Header() {
   const hamburgerRef = useRef<HTMLDivElement>(null);
-  const navRef = useRef<HTMLElement>(null);
+  const { stateValue, setState } = useContext(GlobalContext);
 
   const clickHandler = () => {
     const hamburger = hamburgerRef.current;
-    const nav = navRef.current;
-    if (nav && hamburger) {
-      nav.classList.toggle("nav-active");
-      hamburger.classList.toggle("hamburger-active");
+    if (hamburger) {
+      setState((prevVal) => !prevVal);
     }
-  };
-
-  const navListMapper = (navItem: (typeof navList)[0]) => {
-    const { title } = navItem;
-    return (
-      <Link href="/" key={`nav-item-${title}`} css={headerBavItemCss}>
-        <span>{title}</span>
-      </Link>
-    );
   };
 
   return (
@@ -52,14 +39,16 @@ export default function Header() {
           <span>{workText}</span>
         </div>
       </div>
-      <div css={hamburgerCss} onClick={clickHandler} ref={hamburgerRef}>
+      <div
+        css={hamburgerCss}
+        onClick={clickHandler}
+        ref={hamburgerRef}
+        className={stateValue ? "hamburger-active" : ""}
+      >
         <div className="hamburger-lines"></div>
         <div className="hamburger-lines"></div>
         <div className="hamburger-lines"></div>
       </div>
-      <nav ref={navRef} css={headerNavCss}>
-        {navList.map(navListMapper)}
-      </nav>
     </header>
   );
 }

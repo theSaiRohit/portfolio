@@ -13,7 +13,7 @@ export const homeHeaderWrapperCss = css`
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: var(--z-highest);
   ${mediaQuery.mobile} {
     padding: 0 6.5% 0 0%;
   }
