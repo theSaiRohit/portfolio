@@ -24,7 +24,18 @@ export const skillsTitleCss = css`
   transform: translate(-50%, 50%);
   z-index: 10;
   transition: opacity 0.5s ease;
-  opacity: 0;
+  overflow: hidden;
+  span {
+    display: block;
+    transition: all 0.3s ease;
+    transform: translateY(100%);
+  }
+  &.active {
+    span {
+      transition: all 0.3s ease 0.15s;
+      transform: translateY(0%);
+    }
+  }
   ${mediaQuery.tablet} {
     font-size: var(--font-size-icon);
     bottom: calc(1.75 * var(--bor-rad-large));

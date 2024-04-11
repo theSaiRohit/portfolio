@@ -22,15 +22,13 @@ export default function SkillsCarousal() {
     const ball = ballRef.current;
     const titleContainer = skillTitleContainer.current;
     const titleArray = Array.from(titleContainer?.children ?? []);
-    let startVal = 0;
-    let angle = 0;
-    if (container) {
-      const { left } = container.getBoundingClientRect();
+    let rotateVal = 0;
+    let lastX = 0;
 
+    if (container) {
       const downHandler = (e: TouchEvent | MouseEvent) => {
         container.style.cursor = "grabbing";
         pressed = true;
-        startVal = ((e as TouchEvent)?.touches?.[0]?.clientX ?? (e as MouseEvent)?.x ?? left) - left;
         if (ball) {
           ball.style.transform = "translate(-50%, 50%) scale(0.8)";
         }
@@ -46,19 +44,34 @@ export default function SkillsCarousal() {
               : skillData.length - ((rotateVal / 45) % skillData.length)
             : (-1 * (rotateVal / 45)) % skillData.length;
         for (const titleElem of titleArray) {
-          (titleElem as HTMLElement)?.style.setProperty("opacity", "0");
+          (titleElem as HTMLElement)?.classList.remove("active");
         }
-        (titleArray[index] as HTMLElement)?.style.setProperty("opacity", "1");
+        (titleArray[index] as HTMLElement)?.classList.add("active");
         if (ball) {
           ball.style.transform = "translate(-50%, 50%) scale(1)";
         }
       };
+
       const moveHandler = (e: TouchEvent | MouseEvent) => {
         if (!pressed) return;
-        const { clientX, x } = ((e as TouchEvent)?.touches?.[0] ?? (e as MouseEvent) ?? ({} as never)) as any;
-        angle = angle + ((clientX ?? x ?? startVal + left) - startVal - left);
-        const rotVal = Math.ceil(angle / 2000) * 45;
-        container.style.transform = `rotate(${rotVal}deg)`;
+        let transformVal;
+        let currentX;
+        const { clientX, x, movementX } = ((e as TouchEvent)?.touches?.[0] ??
+          (e as MouseEvent) ??
+          ({} as never)) as any;
+        if (movementX) {
+          movementX > 0 ? (rotateVal = rotateVal + 0.05) : (rotateVal = rotateVal - 0.05);
+        }
+        currentX = clientX;
+        if (currentX > lastX) {
+          rotateVal = rotateVal + 0.1;
+        } else {
+          rotateVal = rotateVal - 0.1;
+        }
+        transformVal = Math.trunc(rotateVal) * 45;
+
+        lastX = currentX;
+        container.style.transform = `rotate(${transformVal}deg)`;
       };
       container.addEventListener("touchstart", downHandler);
       container.addEventListener("touchend", upHandler);
@@ -97,8 +110,8 @@ export default function SkillsCarousal() {
   const skillNameMapper = (skill: (typeof skillData)[0], index: number) => {
     const { title } = skill;
     return (
-      <h3 css={[skillsTitleCss, { opacity: index === 0 ? "1" : "0" }]} key={`skill-title-${title}`}>
-        {title}
+      <h3 css={skillsTitleCss} key={`skill-title-${title}`} className={index === 0 ? "active" : ""}>
+        <span>{title}</span>
       </h3>
     );
   };
