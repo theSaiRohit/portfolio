@@ -9,7 +9,8 @@ import {
   developerPosition,
   developerStudies,
   resumeCtaText,
-  resumeHeading
+  resumeHeading,
+  resumeLink
 } from "@/modules/home/home-resume/content";
 import {
   devPositionTextCss,
@@ -47,7 +48,7 @@ export default function HomeResume() {
                 {mail}
               </Link>
               <p css={resumeDescriptionCss}>{developerDescription}</p>
-              <LinkCtaBtn link="/" text={resumeCtaText} extraStyles={resumeBtnCss} />
+              <LinkCtaBtn link={resumeLink} text={resumeCtaText} extraStyles={resumeBtnCss} target />
             </div>
           </div>
         </div>
