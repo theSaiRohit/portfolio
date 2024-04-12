@@ -65,9 +65,9 @@ export default function SkillsCarousal() {
         }
         currentX = clientX;
         if (currentX > lastX) {
-          rotateVal = rotateVal + 0.5;
+          rotateVal = rotateVal + 0.15;
         } else {
-          rotateVal = rotateVal - 0.5;
+          rotateVal = rotateVal - 0.15;
         }
         transformVal = Math.trunc(rotateVal) * 45;
 
