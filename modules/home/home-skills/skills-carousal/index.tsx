@@ -1,6 +1,7 @@
 import ImageWrapper from "@/components/image-wrapper";
 import { skillData } from "@/modules/home/home-skills/skills-carousal/content";
 import {
+  dragTextImgCss,
   skillBallCss,
   skillItemContainerCss,
   skillItemWrapperCss,
@@ -64,9 +65,9 @@ export default function SkillsCarousal() {
         }
         currentX = clientX;
         if (currentX > lastX) {
-          rotateVal = rotateVal + 0.1;
+          rotateVal = rotateVal + 0.5;
         } else {
-          rotateVal = rotateVal - 0.1;
+          rotateVal = rotateVal - 0.5;
         }
         transformVal = Math.trunc(rotateVal) * 45;
 
@@ -118,6 +119,7 @@ export default function SkillsCarousal() {
   return (
     <>
       <div css={skillsCarousalWrapperCss}>
+        <ImageWrapper alt="Drag This Text" src="/images/skills/drag-text.png" extraStyles={dragTextImgCss} />
         <div ref={skillsCarousalContainerRef} css={skillsCarousalContainerCss}>
           {skillData.map(skillImgMapper)}
         </div>

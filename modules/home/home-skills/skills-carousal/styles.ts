@@ -10,6 +10,7 @@ export const skillBlobTwoCss = css`
   background: conic-gradient(rgb(255, 255, 255) 60%, rgb(249, 180, 42) 40%);
   height: 250px;
   border-radius: 29% 71% 70% 30% / 22% 41% 59% 78%;
+  user-select: none;
   ${mediaQuery.tablet} {
     display: none;
   }
@@ -108,6 +109,24 @@ export const skillsCarousalContainerCss = css`
   ${mediaQuery.tablet} {
     margin-top: var(--padding-dw);
     height: 150vw;
+  }
+`;
+
+export const dragTextImgCss = css`
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translate(-15%, -200%);
+  width: 22.5vw;
+  z-index: var(--z-low);
+  aspect-ratio: 16 / 9;
+  img {
+    object-fit: contain;
+  }
+  ${mediaQuery.tablet} {
+    width: 35vw;
+    top: 50%;
+    transform: translate(-15%, -75%);
   }
 `;
 
