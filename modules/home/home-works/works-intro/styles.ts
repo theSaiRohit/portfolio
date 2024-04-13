@@ -38,7 +38,3 @@ export const workIntroBlobCss = css`
     top: 30%;
   }
 `;
-
-export const worksCtaBtnCss = css`
-  margin-top: auto;
-`;

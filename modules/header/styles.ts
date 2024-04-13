@@ -19,13 +19,6 @@ export const homeHeaderWrapperCss = css`
   }
 `;
 
-export const logoStyleCss = css`
-  background-color: red;
-  ${mediaQuery.mobile} {
-    transform: translateX(-17.5px) scale(0.75);
-  }
-`;
-
 export const headerTextWrapperCss = css`
   display: flex;
   align-items: center;

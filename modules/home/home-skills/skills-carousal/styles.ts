@@ -112,24 +112,6 @@ export const skillsCarousalContainerCss = css`
   }
 `;
 
-export const dragTextImgCss = css`
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  transform: translate(-15%, -200%);
-  width: 22.5vw;
-  z-index: var(--z-low);
-  aspect-ratio: 16 / 9;
-  img {
-    object-fit: contain;
-  }
-  ${mediaQuery.tablet} {
-    width: 35vw;
-    top: 50%;
-    transform: translate(-15%, -75%);
-  }
-`;
-
 export const skillItemWrapperCss = (index: number, total: number) => css`
   --val: ${(360 * index) / total}deg;
   height: 100%;

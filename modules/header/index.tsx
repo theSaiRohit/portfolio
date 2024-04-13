@@ -9,7 +9,6 @@ import {
   homeHeaderWrapperCss,
   indiaFlagCss,
   locationWrapperCss,
-  logoStyleCss,
   workPositionWrapperCss
 } from "@/modules/header/styles";
 import Link from "next/link";
@@ -28,7 +27,7 @@ export default function Header() {
 
   return (
     <header css={homeHeaderWrapperCss}>
-      <Logo extraStyles={logoStyleCss} />
+      <Logo />
       <div css={headerTextWrapperCss}>
         <Link href={locationLink} css={locationWrapperCss} rel="noopener noreferrer" target="_blank">
           <span>{city}</span>

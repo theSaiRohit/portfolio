@@ -50,7 +50,6 @@ export const experienceCardCss = css`
   border-bottom: 1px solid var(--color-off-gray);
   color: var(--color-text-gray);
   margin: 0 var(--gutter-padding);
-  cursor: pointer;
   padding: var(--bor-rad-large) 0;
   ${mediaQuery.desktop} {
     &:hover {

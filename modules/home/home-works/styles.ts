@@ -10,6 +10,10 @@ export const workWrapperCss = css`
     border-top-right-radius: calc(var(--padding-small) - var(--scrollbar-width));
     border-top-left-radius: calc(var(--padding-small) - var(--scrollbar-width));
   }
+  ${mediaQuery.mobile} {
+    width: 100%;
+    transform: translateX(0);
+  }
 `;
 
 export const worksStripWrapperCss = css`

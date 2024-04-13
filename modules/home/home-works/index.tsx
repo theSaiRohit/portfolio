@@ -19,6 +19,7 @@ export default function HomeWorks() {
   const worksCarousalRef = useRef<HTMLDivElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
+    if (innerWidth < 450) return;
     const worksWrapper = worksWrapperRef.current;
     if (worksWrapper) {
       const widthHandler = () => {
