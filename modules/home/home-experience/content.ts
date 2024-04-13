@@ -1,27 +1,27 @@
-export const experienceHeading = "Experience History";
+export const experienceHeading = "Development Exposure";
 export const experienceData = [
   {
     role: "React Developer",
     company: "Krishaka Agrow",
-    type: "Remote",
+    type: "Internship - Remote",
     duration: "January 2024 - March 2024"
   },
   {
-    role: "Frontend Developer",
+    role: "Web Developer",
     company: "Texus 2023",
-    type: "College",
+    type: "College Participation",
     duration: "February 2023 - April 2023"
   },
   {
     role: "Frontend Developer",
     company: "Ecstasy Creatives",
-    type: "Remote",
+    type: "Internship - Remote",
     duration: "January 2023 - March 2023"
   },
   {
-    role: "Web Developer",
+    role: "RnD Member",
     company: "Sketch Club",
-    type: "College",
+    type: "College Role",
     duration: "November 2021 - May 2023"
   }
 ];

@@ -24,7 +24,7 @@ export const workData = [
     customColor: "rgb(151, 252, 255)"
   },
   {
-    siteName: "Sai Rohit",
+    siteName: "Portfolio",
     siteLink: "https://sairohit.in/",
     siteImg: "/images/work/portfolio.jpeg",
     customColor: "rgb(210, 198, 255)"

@@ -11,7 +11,7 @@ export const navList = [
   },
   {
     title: "About",
-    desc: "Here's a curated selection showcasing my expertise and the achieved results",
+    desc: "A little about me, my interests and my journey so far.",
     grid: {
       rowVal: "3 / 4",
       colVal: "-3 / -2"
@@ -19,7 +19,7 @@ export const navList = [
   },
   {
     title: "Skills",
-    desc: "Here's a curated selection showcasing my expertise and the achieved results",
+    desc: "A cicular carousal displaying the all of my skills and strengths.",
     grid: {
       rowVal: "2 / 3",
       colVal: "-3 / -2"
@@ -27,15 +27,15 @@ export const navList = [
   },
   {
     title: "Resume",
-    desc: "Here's a curated selection showcasing my expertise and the achieved results",
+    desc: "A documented standard resume giving insightful information of myself.",
     grid: {
       rowVal: "3 / 4",
       colVal: "-4 / -3"
     }
   },
   {
-    title: "Experience",
-    desc: "Here's a curated selection showcasing my expertise and the achieved results",
+    title: "Exposure",
+    desc: "List of internships and college roles I've taken up.",
     grid: {
       rowVal: "2 / 3",
       colVal: "-2 / -1"
@@ -43,7 +43,7 @@ export const navList = [
   },
   {
     title: "Contact",
-    desc: "Here's a curated selection showcasing my expertise and the achieved results",
+    desc: "",
     grid: {
       rowVal: "3 / 4",
       colVal: "-3 / -2"
