@@ -1,8 +1,8 @@
 export const workData = [
   {
-    siteName: "Krishaka",
-    siteLink: "https://krishaka-remake.vercel.app/",
-    siteImg: "/images/work/krishaka.jpeg",
+    siteName: "Optimeleon",
+    siteLink: "https://beta.optimeleon.com/",
+    siteImg: "/images/work/optimeleon.jpeg",
     customColor: "hsla(70, 80%, 90%, 1)"
   },
   {

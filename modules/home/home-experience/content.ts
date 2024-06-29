@@ -1,10 +1,16 @@
 export const experienceHeading = "Development Exposure";
 export const experienceData = [
   {
-    role: "React Developer",
-    company: "Krishaka Agrow",
-    type: "Internship - Remote",
-    duration: "January 2024 - March 2024"
+    role: "Next.js Developer",
+    company: "Optimeleon",
+    type: "Part time - Remote",
+    duration: "May 2024 - Ongoing"
+  },
+  {
+    role: "Fontend Developer",
+    company: "Hymns of Web",
+    type: "Startup",
+    duration: "May 2023 - May 2024"
   },
   {
     role: "Web Developer",

@@ -22,10 +22,10 @@ function WC(_: unknown, ref: Ref<HTMLDivElement>) {
         <div css={workTitleWrapperCss}>
           <h3 css={workTitleCss}>{siteName}</h3>
           <div css={workCtaWrapper}>
-            <Link href={siteLink} css={workCardCtaCss} className="link-wrapper">
+            <a href={siteLink} css={workCardCtaCss} className="link-wrapper" target="_blank" rel="noreferrer noopener">
               <span>Visit</span>
               <BsArrowUpRightCircleFill css={workCardCtaSvgCss} />
-            </Link>
+            </a>
           </div>
         </div>
         <ImageWrapper alt="website template" src={siteImg} extraStyles={workImgCss} />
