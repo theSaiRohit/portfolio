@@ -1,7 +1,7 @@
 export const workData = [
   {
     siteName: "Optimeleon",
-    siteLink: "https://beta.optimeleon.com/",
+    siteLink: "https://www.optimeleon.com/",
     siteImg: "/images/work/optimeleon.jpeg",
     customColor: "hsla(70, 80%, 90%, 1)"
   },
