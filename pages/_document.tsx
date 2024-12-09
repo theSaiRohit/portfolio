@@ -9,7 +9,15 @@ export default function Document() {
           strategy="beforeInteractive"
           src="https://cdn-stag.optimeleon.com/por-8dwep/def-8dwep/main.js"
         />
-        <Script> var timeout = 3000; !function(h,i,d,e){var t,n=h.createElement("style");n.id=e,n.innerHTML="body{opacity:0}",h.head.appendChild(n),t=d,i.rmfk=function(){var t=h.getElementById(e);t&&t.parentNode.removeChild(t)},setTimeout(i.rmfk,t)}(document,window,timeout,"abhide"); </Script>
+        <Script
+          id="abhide"
+          dangerouslySetInnerHTML={{
+            __html: `
+            var timeout = 3000;
+            !function(h,i,d,e){var t,n=h.createElement("style");n.id=e,n.innerHTML="body{opacity:0}",h.head.appendChild(n),t=d,i.rmfk=function(){var t=h.getElementById(e);t&&t.parentNode.removeChild(t)},setTimeout(i.rmfk,t)}(document,window,timeout,"abhide");
+          `
+          }}
+        />
       </Head>
       <body>
         <Main />
