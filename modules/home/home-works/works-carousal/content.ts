@@ -3,19 +3,19 @@ export const workData = [
     siteName: "Optimeleon",
     siteLink: "https://www.optimeleon.com/",
     siteImg: "/images/work/optimeleon.jpeg",
-    customColor: "hsla(70, 80%, 90%, 1)"
+    customColor: "rgb(142, 172, 255)"
   },
   {
-    siteName: "Hymns Of Web",
-    siteLink: "https://www.hymnsofweb.com/",
-    siteImg: "/images/work/how.jpeg",
-    customColor: "rgb(255, 255, 255)"
+    siteName: "Fruit9",
+    siteLink: "https://www.fruit9.store/",
+    siteImg: "/images/work/fruit9.jpeg",
+    customColor: "rgb(255, 232, 157)"
   },
   {
-    siteName: "Avita HR",
-    siteLink: "https://www.avitahr.com/",
-    siteImg: "/images/work/avita.jpeg",
-    customColor: "rgb(167, 255, 202)"
+    siteName: "Texus - College Fest",
+    siteLink: "https://srm-texus-2023.vercel.app/",
+    siteImg: "/images/work/texus.jpeg",
+    customColor: "rgb(255, 120, 165)"
   },
   {
     siteName: "Koinx Beige",

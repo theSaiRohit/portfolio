@@ -1,9 +1,9 @@
 export const experienceHeading = "Development Exposure";
 export const experienceData = [
   {
-    role: "Next.js Developer",
+    role: "Frontend Engineer",
     company: "Optimeleon",
-    type: "Part time - Remote",
+    type: "Full Time - Remote",
     duration: "May 2024 - Ongoing"
   },
   {
