@@ -11,23 +11,6 @@ import Script from "next/script";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Script id="optimeleon-overlay" strategy="afterInteractive">
-        {`
-          !(function (h, i, e) {
-            var t = 3000;
-            var n = h.createElement("style");
-            n.id = e;
-            n.innerHTML = "body{opacity:0}";
-            h.head.appendChild(n);
-            i.rmfk = function () {
-              var t = h.getElementById(e);
-              t && t.parentNode.removeChild(t);
-            };
-            setTimeout(i.rmfk, t);
-          })(document, window, "optimeleon-overlay");
-        `}
-      </Script>
-
       {/* Inline script to set consent in localStorage */}
       <Script id="opti-consent" strategy="afterInteractive">
         {`
