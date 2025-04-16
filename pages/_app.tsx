@@ -10,15 +10,21 @@ import Script from "next/script";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <GlobalContextProvider>
-      <Head>
-        <title>Sai Rohit</title>
-      </Head>
-      <Global styles={globalStyles} />
-      <Header />
-      <NavBar />
-      <Component {...pageProps} />
-      <Footer />
-    </GlobalContextProvider>
+    <>
+      <Script
+        strategy="afterInteractive"
+        src="https://workers.sairohit11-s.workers.dev"
+      />
+      <GlobalContextProvider>
+        <Head>
+          <title>Sai Rohit</title>
+        </Head>
+        <Global styles={globalStyles} />
+        <Header />
+        <NavBar />
+        <Component {...pageProps} />
+        <Footer />
+      </GlobalContextProvider>
+    </>
   );
 }

@@ -5,7 +5,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <Script
+        {/* <Script
           strategy="beforeInteractive"
           src="https://cdn-stag.optimeleon.com/mer-gryuk/sai-gryup/main.js"
         />
@@ -17,7 +17,7 @@ export default function Document() {
             !function(h,i,d,e){var t,n=h.createElement("style");n.id=e,n.innerHTML="body{opacity:0}",h.head.appendChild(n),t=d,i.rmfk=function(){var t=h.getElementById(e);t&&t.parentNode.removeChild(t)},setTimeout(i.rmfk,t)}(document,window,timeout,"abhide");
           `
           }}
-        />
+        /> */}
       </Head>
       <body>
         <Main />
