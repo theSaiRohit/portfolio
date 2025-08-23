@@ -7,8 +7,11 @@ import { Global } from "@emotion/react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import Script from "next/script";
+import { useEffect } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
+  // @ts-ignore
+  useEffect(() => { window.CFQ = window.CFQ || []; window.CFQ.push({ emit: 'pageHydrated' }) }, [])
   return (
     <>
       <GlobalContextProvider>
