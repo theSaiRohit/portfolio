@@ -25,7 +25,7 @@ export default function Document() {
         /> */}
 
         {/* Set OptiCookieConsent function s*/}
-        <script
+        {/* <script
           dangerouslySetInnerHTML={{
             __html: `
               window.setOptiCookieConsent = (consent) => {
@@ -33,7 +33,7 @@ export default function Document() {
               };
             `,
           }}
-        />
+        /> */}
       </Head>
       <body>
         <Main />

@@ -43,6 +43,18 @@ export default function App({ Component, pageProps }: AppProps) {
             `,
           }}
         />
+        <Script
+  id="set-opti-cookie-consent"
+  strategy="afterInteractive"
+  dangerouslySetInnerHTML={{
+    __html: `
+      window.setOptiCookieConsent = (consent) => {
+        localStorage.setItem("opti_consent", consent);
+      };
+    `,
+  }}
+/>
+
 
         <Global styles={globalStyles} />
         <Header />
