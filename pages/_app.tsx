@@ -51,9 +51,15 @@ export default function App({ Component, pageProps }: AppProps) {
       window.setOptiCookieConsent = (consent) => {
         localStorage.setItem("opti_consent", consent);
       };
+
+      // Automatically set a default consent if none exists
+      if (!localStorage.getItem("opti_consent")) {
+        window.setOptiCookieConsent("pending");
+      }
     `,
   }}
 />
+
 
 
         <Global styles={globalStyles} />
