@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
         {/* Load Optimeleon main script */}
         <Script
           id="optimeleon-main"
-          src="https://webappdatastaging.blob.core.windows.net//nen-xdi54/sai-xdi55/v1.main.js"
+          src="https://webappdatastaging.blob.core.windows.net/nen-xdi54/sai-xdi55/v1.main.js"
           async
           strategy="afterInteractive"
         />
@@ -44,7 +44,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 c.queue = [];
                 a = t.createElement(n);
                 a.async = true;
-                a.src = "https://webappdatastaging.blob.core.windows.net//nen-xdi54/sai-xdi55/v1.main.js";
+                a.src = "https://webappdatastaging.blob.core.windows.net/nen-xdi54/sai-xdi55/v1.main.js";
                 s = t.getElementsByTagName(n)[0];
                 s.parentNode.insertBefore(a, s);
               }
