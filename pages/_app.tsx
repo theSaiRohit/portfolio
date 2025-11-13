@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <Script
           id="optimeleon-loader"
           strategy="afterInteractive"
-          src="https://webappdatastaging.blob.core.windows.net/ser-r31sv/sai-r31t5/debug/v1.main.js"
+          src="https://webappdatastaging.blob.core.windows.net/sai-x7jcx/sai-x7jcx/debug/v1.main.js"
           async
         />
         <Script
@@ -36,7 +36,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 },
                 s.push=s,s.queue=[],
                 (a=t.createElement(n)).async=!0,
-                a.src="https://webappdatastaging.blob.core.windows.net/ser-r31sv/sai-r31t5/debug/v1.main.js",
+                a.src="https://webappdatastaging.blob.core.windows.net/sai-x7jcx/sai-x7jcx/debug/v1.main.js",
                 (c=t.getElementsByTagName(n)[0]).parentNode.insertBefore(a,c))
               }(window,document,"script");
               optimeleon("init",true,true);
