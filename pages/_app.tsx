@@ -6,63 +6,36 @@ import { globalStyles } from "@/styles/global-styles";
 import { Global } from "@emotion/react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import Script from "next/script";
+import { useEffect } from "react";
+import posthog from 'posthog-js'
+import { PostHogProvider } from 'posthog-js/react'
 
 export default function App({ Component, pageProps }: AppProps) {
 
+    useEffect(() => {
+    posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY as string, {
+      api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://eu.i.posthog.com',
+      person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
+      defaults: '2025-05-24',
+      // Enable debug mode in development
+      loaded: (posthog) => {
+        if (process.env.NODE_ENV === 'development') posthog.debug()
+      }
+    })
+  }, [])
+
   return (
-    <>
+    <PostHogProvider client={posthog}>
       <GlobalContextProvider>
         <Head>
           <title>Sai Rohit</title>
         </Head>
-                <Script id="set-opticookie-fn" strategy="afterInteractive">
-          {`
-            window.setOptiCookieConsent = function(consent) {
-              localStorage.setItem("opti_consent", consent);
-            };
-          `}
-        </Script>
-
-        {/* Load Optimeleon main script */}
-        <Script
-          id="optimeleon-main"
-          src="https://webappdatastaging.blob.core.windows.net/nen-xdi54/sai-xdi55/v1.main.js"
-          async
-          strategy="afterInteractive"
-        />
-
-        {/* Initialize Optimeleon */}
-        <Script id="optimeleon-init" strategy="afterInteractive">
-          {`
-            (function(e,t,n,o,c,a,s){
-              if(!e.optimeleon){
-                c = e.optimeleon = function(){
-                  c.callMethod ? c.callMethod.apply(c, arguments) : c.queue.push(arguments);
-                };
-                c.push = c;
-                c.queue = [];
-                a = t.createElement(n);
-                a.async = true;
-                a.src = "https://webappdatastaging.blob.core.windows.net/nen-xdi54/sai-xdi55/v1.main.js";
-                s = t.getElementsByTagName(n)[0];
-                s.parentNode.insertBefore(a, s);
-              }
-            })(window, document, "script");
-            optimeleon("init", true, true);
-          `}
-        </Script>
-
-        {/* Set consent immediately */}
-        <Script id="optimeleon-consent" strategy="afterInteractive">
-          {`window.setOptiCookieConsent("yes");`}
-        </Script>
         <Global styles={globalStyles} />
         <Header />
         <NavBar />
         <Component {...pageProps} />
         <Footer />
       </GlobalContextProvider>
-    </>
+    </PostHogProvider>
   );
 }
