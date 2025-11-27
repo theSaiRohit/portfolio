@@ -6,28 +6,28 @@ import { globalStyles } from "@/styles/global-styles";
 import { Global } from "@emotion/react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { useEffect } from "react";
-import posthog from 'posthog-js'
-import { PostHogProvider } from 'posthog-js/react'
 
 export default function App({ Component, pageProps }: AppProps) {
 
-    useEffect(() => {
-    posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY as string, {
-      api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://eu.i.posthog.com',
-      person_profiles: 'identified_only', // or 'always' to create profiles for anonymous users as well
-      defaults: '2025-05-24',
-      // Enable debug mode in development
-      loaded: (posthog) => {
-        if (process.env.NODE_ENV === 'development') posthog.debug()
-      }
-    })
-  }, [])
-
   return (
-    <PostHogProvider client={posthog}>
       <GlobalContextProvider>
         <Head>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `!(function (h, i, e) { var t = 5000; var n = h.createElement("style"); n.id = e; n.innerHTML = "body{opacity:0}"; h.head.appendChild(n); i.rmfk = function () { var t = h.getElementById(e); t && t.parentNode.removeChild(t); }; setTimeout(i.rmfk, t); })(document, window, "optimeleon-overlay");`,
+            }}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `window.setOptiCookieConsent = function(consent) { localStorage.setItem("opti_consent", consent); };`,
+            }}
+          />
+          <script
+            async
+            dangerouslySetInnerHTML={{
+              __html: `!function(e,t,n,o,a,c,l){e.optimeleon||(a=e.optimeleon=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},a.push=a,a.queue=[],(c=t.createElement(n)).async=!0,c.src="https://cdn-stag.optimeleon.com/tra-hg872/sai-hg878/v1.main.js",(l=t.getElementsByTagName(n)[0]).parentNode.insertBefore(c,l))}(window,document,"script"); optimeleon("init",true,true);`,
+            }}
+          />
           <title>Sai Rohit</title>
         </Head>
         <Global styles={globalStyles} />
@@ -36,6 +36,5 @@ export default function App({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
         <Footer />
       </GlobalContextProvider>
-    </PostHogProvider>
   );
 }
