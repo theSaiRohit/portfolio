@@ -25,7 +25,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <script
             async
             dangerouslySetInnerHTML={{
-              __html: `!function(e,t,n,o,a,c,l){e.optimeleon||(a=e.optimeleon=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},a.push=a,a.queue=[],(c=t.createElement(n)).async=!0,c.src="https://cdn-stag.optimeleon.com/tra-hg872/sai-hg878/v1.main.js",(l=t.getElementsByTagName(n)[0]).parentNode.insertBefore(c,l))}(window,document,"script"); optimeleon("init",true,true);`,
+              __html: `!function(e,t,n,o,a,c,l){e.optimeleon||(a=e.optimeleon=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},a.push=a,a.queue=[],(c=t.createElement(n)).async=!0,c.src="https://cdn-stag.optimeleon.com/tat-o9zst/sai-o9zsy/v1.main.js",(l=t.getElementsByTagName(n)[0]).parentNode.insertBefore(c,l))}(window,document,"script"); optimeleon("init",true,true);`,
             }}
           />
           <title>Sai Rohit</title>
