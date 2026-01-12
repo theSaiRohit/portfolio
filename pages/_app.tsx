@@ -12,23 +12,33 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
       <GlobalContextProvider>
         <Head>
-          {/* <script
-            dangerouslySetInnerHTML={{
-              __html: `!(function (h, i, e) { var t = 5000; var n = h.createElement("style"); n.id = e; n.innerHTML = "body{opacity:0}"; h.head.appendChild(n); i.rmfk = function () { var t = h.getElementById(e); t && t.parentNode.removeChild(t); }; setTimeout(i.rmfk, t); })(document, window, "optimeleon-overlay");`,
-            }}
-          /> */}
-          {/* <script
-            dangerouslySetInnerHTML={{
-              __html: `window.setOptiCookieConsent = function(consent) { localStorage.setItem("opti_consent", consent); };`,
-            }}
-          /> */}
-          {/* <script
-            async
-            dangerouslySetInnerHTML={{
-              __html: `!function(e,t,n,o,a,c,l){e.optimeleon||(a=e.optimeleon=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},a.push=a,a.queue=[],(c=t.createElement(n)).async=!0,c.src="https://cdn-stag.optimeleon.com/cli-pvk31/sai-pvk36/v1.main.js",(l=t.getElementsByTagName(n)[0]).parentNode.insertBefore(c,l))}(window,document,"script"); optimeleon("init",true,true);`,
-            }}
-          /> */}
-          <script src="https://webappdatastaging.blob.core.windows.net/cus-pkitr/ver-pkitw/main.js" async />
+          <script type="text/javascript">
+            {`window.setOptiCookieConsent = function(consent) {
+    localStorage.setItem("opti_consent", consent);
+  };
+  
+   // Auto-accept consent if explicit consent mode is disabled
+   window.setOptiCookieConsent("yes");
+  `}
+          </script>
+
+          <script type="text/javascript" async>
+            {`!(function (h, i, e) {
+  var t = 2000;
+  var n = h.createElement("style");
+  n.id = e;
+  n.innerHTML = "body{opacity:0}";
+  h.head.appendChild(n);
+  i.rmfk = function () {
+    var t = h.getElementById(e);
+    t && t.parentNode.removeChild(t);
+  };
+  setTimeout(i.rmfk, t);
+})(document, window, "optimeleon-overlay");
+ 
+  !function(e,t,n,o,a,s,u){e.optimeleon||(a=e.optimeleon=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},a.push=a,a.queue=[],(s=t.createElement(n)).async=!0,s.src="https://cdn-stag.optimeleon.com/sai-au96u/sai-au96v/v1.main.js",(u=t.getElementsByTagName(n)[0]).parentNode.insertBefore(s,u))}(window,document,"script");
+  optimeleon("init",true,true);`}
+          </script>
           <title>Sai Rohit</title>
         </Head>
         <Global styles={globalStyles} />
