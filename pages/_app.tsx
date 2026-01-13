@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
       <GlobalContextProvider>
         <Head>
-          <script type="text/javascript">
+           <script type="text/javascript">
             {`window.setOptiCookieConsent = function(consent) {
     localStorage.setItem("opti_consent", consent);
   };
@@ -36,7 +36,7 @@ export default function App({ Component, pageProps }: AppProps) {
   setTimeout(i.rmfk, t);
 })(document, window, "optimeleon-overlay");
  
-  !function(e,t,n,o,a,s,u){e.optimeleon||(a=e.optimeleon=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},a.push=a,a.queue=[],(s=t.createElement(n)).async=!0,s.src="https://cdn-stag.optimeleon.com/sai-azyhc/sai-azyhd/v1.main.js",(u=t.getElementsByTagName(n)[0]).parentNode.insertBefore(s,u))}(window,document,"script");
+  !function(e,t,n,o,a,s,u){e.optimeleon||(a=e.optimeleon=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},a.push=a,a.queue=[],(s=t.createElement(n)).async=!0,s.src="https://cdn-stag.optimeleon.com/sai-caonf/sai-caonl/v1.main.js",(u=t.getElementsByTagName(n)[0]).parentNode.insertBefore(s,u))}(window,document,"script");
   optimeleon("init",true,true);`}
           </script>
           <title>Sai Rohit</title>
