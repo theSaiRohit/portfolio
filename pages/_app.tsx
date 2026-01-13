@@ -16,9 +16,6 @@ export default function App({ Component, pageProps }: AppProps) {
             {`window.setOptiCookieConsent = function(consent) {
     localStorage.setItem("opti_consent", consent);
   };
-  
-   // Auto-accept consent if explicit consent mode is disabled
-   window.setOptiCookieConsent("yes");
   `}
           </script>
 
