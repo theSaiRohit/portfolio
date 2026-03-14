@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
       <GlobalContextProvider>
         <Head>
-           <script type="text/javascript">
+           {/* <script type="text/javascript">
             {`window.setOptiCookieConsent = function(consent) {
     localStorage.setItem("opti_consent", consent);
   };
@@ -35,7 +35,8 @@ export default function App({ Component, pageProps }: AppProps) {
  
   !function(e,t,n,o,a,s,u){e.optimeleon||(a=e.optimeleon=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},a.push=a,a.queue=[],(s=t.createElement(n)).async=!0,s.src="https://webappdatastaging.blob.core.windows.net/htt-d8i7a/sai-d8i7b/v1.main.js",(u=t.getElementsByTagName(n)[0]).parentNode.insertBefore(s,u))}(window,document,"script");
   optimeleon("init",true,true);`}
-          </script>
+          </script> */}
+          <script type="text/javascript" async src="https://webappdatastaging.blob.core.windows.net/htt-d8i7a/sai-d8i7b/v1.main.js" />
           <title>Sai Rohit</title>
         </Head>
         <Global styles={globalStyles} />
