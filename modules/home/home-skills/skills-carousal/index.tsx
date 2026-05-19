@@ -23,59 +23,118 @@ export default function SkillsCarousal() {
     const titleContainer = skillTitleContainer.current;
     const titleArray = Array.from(titleContainer?.children ?? []);
     let rotateVal = 0;
+    let startX = 0;
+    let startRotateVal = 0;
     let lastX = 0;
+    let lastTime = 0;
+    let velocity = 0;
+    let animationFrameId: number | null = null;
+
+    const SENSITIVITY = 0.25; // Lower = more sensitive
+    const FRICTION = 0.92; // Momentum decay
+    const SNAP_THRESHOLD = 22.5; // Half of anglePerSkill
 
     if (container) {
-      const downHandler = (e: TouchEvent | MouseEvent) => {
-        container.style.cursor = "grabbing";
-        pressed = true;
-        if (ball) {
-          ball.style.transform = "translate(-50%, 50%) scale(0.8)";
-        }
-      };
-      const upHandler = (e: TouchEvent | MouseEvent) => {
-        container.style.cursor = "grab";
-        pressed = false;
-        const rotateVal = (container.style.getPropertyValue("transform") as any).match(/-?\d+/)?.[0];
-        const index =
-          rotateVal > 0
-            ? (rotateVal / 45) % skillData.length === 0
-              ? 0
-              : skillData.length - ((rotateVal / 45) % skillData.length)
-            : (-1 * (rotateVal / 45)) % skillData.length;
+      const updateActiveTitle = (currentRotation: number) => {
+        const totalSkills = skillData.length;
+        const anglePerSkill = 360 / totalSkills;
+        let index = Math.round(((180 - currentRotation) % 360 + 360) % 360 / anglePerSkill) % totalSkills;
+
         for (const titleElem of titleArray) {
           (titleElem as HTMLElement)?.classList.remove("active");
         }
         (titleArray[index] as HTMLElement)?.classList.add("active");
+      };
+
+      const snapToNearestSkill = () => {
+        const anglePerSkill = 360 / skillData.length;
+        const snappedVal = Math.round(rotateVal / anglePerSkill) * anglePerSkill;
+        
+        container.style.transition = "transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)";
+        rotateVal = snappedVal;
+        container.style.transform = `rotate(${rotateVal}deg)`;
+        updateActiveTitle(rotateVal);
+      };
+
+      const applyMomentum = () => {
+        if (Math.abs(velocity) < 0.1) {
+          snapToNearestSkill();
+          return;
+        }
+
+        const animate = () => {
+          rotateVal += velocity;
+          velocity *= FRICTION;
+
+          container.style.transition = "none";
+          container.style.transform = `rotate(${rotateVal}deg)`;
+          updateActiveTitle(rotateVal);
+
+          if (Math.abs(velocity) > 0.1) {
+            animationFrameId = requestAnimationFrame(animate);
+          } else {
+            snapToNearestSkill();
+          }
+        };
+
+        animationFrameId = requestAnimationFrame(animate);
+      };
+
+      const downHandler = (e: TouchEvent | MouseEvent) => {
+        if (animationFrameId !== null) {
+          cancelAnimationFrame(animationFrameId);
+          animationFrameId = null;
+        }
+
+        container.style.transition = "none";
+        container.style.cursor = "grabbing";
+        pressed = true;
+        startX = (e as MouseEvent).clientX ?? (e as TouchEvent).touches[0].clientX;
+        lastX = startX;
+        startRotateVal = rotateVal;
+        lastTime = Date.now();
+        velocity = 0;
+
+        if (ball) {
+          ball.style.transform = "translate(-50%, 50%) scale(0.8)";
+        }
+      };
+
+      const upHandler = (e: TouchEvent | MouseEvent) => {
+        if (!pressed) return;
+        container.style.cursor = "grab";
+        pressed = false;
+
         if (ball) {
           ball.style.transform = "translate(-50%, 50%) scale(1)";
         }
+
+        applyMomentum();
       };
 
       const moveHandler = (e: TouchEvent | MouseEvent) => {
         if (!pressed) return;
-        let transformVal;
-        let currentX;
-        const { clientX, x, movementX } = ((e as TouchEvent)?.touches?.[0] ??
-          (e as MouseEvent) ??
-          ({} as never)) as any;
-        if (movementX) {
-          movementX > 0 ? (rotateVal = rotateVal + 0.05) : (rotateVal = rotateVal - 0.05);
-        }
-        currentX = clientX;
-        if (currentX > lastX) {
-          rotateVal = rotateVal + 0.15;
-        } else {
-          rotateVal = rotateVal - 0.15;
-        }
-        transformVal = Math.trunc(rotateVal) * 45;
+
+        const currentX = (e as MouseEvent).clientX ?? (e as TouchEvent).touches[0].clientX;
+        const currentTime = Date.now();
+        const timeDelta = Math.max(currentTime - lastTime, 1);
+        const diffX = currentX - lastX;
+
+        // Calculate velocity for momentum
+        velocity = (diffX * SENSITIVITY) / (timeDelta / 16); // Normalize to ~60fps
+
+        rotateVal += diffX * SENSITIVITY;
+
+        container.style.transform = `rotate(${rotateVal}deg)`;
+        updateActiveTitle(rotateVal);
 
         lastX = currentX;
-        container.style.transform = `rotate(${transformVal}deg)`;
+        lastTime = currentTime;
       };
-      container.addEventListener("touchstart", downHandler);
+
+      container.addEventListener("touchstart", downHandler, { passive: true });
       container.addEventListener("touchend", upHandler);
-      container.addEventListener("touchmove", moveHandler);
+      container.addEventListener("touchmove", moveHandler, { passive: true });
       container.addEventListener("touchcancel", upHandler);
 
       container.addEventListener("mousedown", downHandler);
@@ -84,6 +143,10 @@ export default function SkillsCarousal() {
       container.addEventListener("mouseleave", upHandler);
 
       return () => {
+        if (animationFrameId !== null) {
+          cancelAnimationFrame(animationFrameId);
+        }
+
         container.removeEventListener("touchstart", downHandler);
         container.removeEventListener("touchend", upHandler);
         container.removeEventListener("touchmove", moveHandler);

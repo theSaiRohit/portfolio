@@ -105,7 +105,6 @@ export const skillsCarousalContainerCss = css`
   border-radius: 50%;
   top: 50%;
   cursor: grab;
-  transition: transform 1s ease;
   ${mediaQuery.tablet} {
     margin-top: var(--padding-dw);
     height: 150vw;
