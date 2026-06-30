@@ -4,14 +4,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        {/* Optimeleon: define consent helper before anything reads it */}
-        <script
-          type="text/javascript"
-          data-cookieconsent="ignore"
-          dangerouslySetInnerHTML={{
-            __html: `window.setOptiCookieConsent = function(consent) { localStorage.setItem("opti_consent", JSON.stringify(consent)); };`,
-          }}
-        />
         {/* Optimeleon: set consent. Switch statistics to false to decline third-party tracking. */}
         <script
           type="text/javascript"
