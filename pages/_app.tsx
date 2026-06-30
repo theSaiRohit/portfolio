@@ -1,3 +1,4 @@
+import ConsentModal from "@/components/consent-modal";
 import GlobalContextProvider from "@/context/global-context/context-provider";
 import Footer from "@/modules/footer";
 import Header from "@/modules/header";
@@ -20,6 +21,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <NavBar />
         <Component {...pageProps} />
         <Footer />
+        <ConsentModal />
       </GlobalContextProvider>
   );
 }

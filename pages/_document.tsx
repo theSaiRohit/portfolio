@@ -4,15 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        {/* Optimeleon: set consent. Switch statistics to false to decline third-party tracking. */}
-        <script
-          type="text/javascript"
-          data-cookieconsent="ignore"
-          dangerouslySetInnerHTML={{
-            __html: `if (typeof window.setOptiCookieConsent === "function") { window.setOptiCookieConsent({ statistics: true }); }`,
-          }}
-        />
-        {/* Optimeleon: loader + init */}
+        {/* Optimeleon: loader + init. Consent is set from the ConsentModal (components/consent-modal). */}
         <script
           type="text/javascript"
           async
