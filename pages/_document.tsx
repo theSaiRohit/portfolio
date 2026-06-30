@@ -9,7 +9,7 @@ export default function Document() {
           type="text/javascript"
           data-cookieconsent="ignore"
           dangerouslySetInnerHTML={{
-            __html: `window.setOptiCookieConsent({ statistics: true });`,
+            __html: `if (typeof window.setOptiCookieConsent === "function") { window.setOptiCookieConsent({ statistics: true }); }`,
           }}
         />
         {/* Optimeleon: loader + init */}
