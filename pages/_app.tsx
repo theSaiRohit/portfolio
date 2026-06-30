@@ -12,31 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
       <GlobalContextProvider>
         <Head>
-           {/* <script type="text/javascript">
-            {`window.setOptiCookieConsent = function(consent) {
-    localStorage.setItem("opti_consent", consent);
-  };
-  `}
-          </script>
-
-          <script type="text/javascript" async>
-            {`!(function (h, i, e) {
-  var t = 2000;
-  var n = h.createElement("style");
-  n.id = e;
-  n.innerHTML = "body{opacity:0}";
-  h.head.appendChild(n);
-  i.rmfk = function () {
-    var t = h.getElementById(e);
-    t && t.parentNode.removeChild(t);
-  };
-  setTimeout(i.rmfk, t);
-})(document, window, "optimeleon-overlay");
- 
-  !function(e,t,n,o,a,s,u){e.optimeleon||(a=e.optimeleon=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},a.push=a,a.queue=[],(s=t.createElement(n)).async=!0,s.src="https://webappdatastaging.blob.core.windows.net/htt-d8i7a/sai-d8i7b/v1.main.js",(u=t.getElementsByTagName(n)[0]).parentNode.insertBefore(s,u))}(window,document,"script");
-  optimeleon("init",true,true);`}
-          </script> */}
-          <script type="text/javascript" async src="https://webappdatastaging.blob.core.windows.net/htt-d8i7a/sai-d8i7b/v1.main.js" />
+          {/* Optimeleon scripts live in pages/_document.tsx so they load in <head> on first paint. */}
           <title>Sai Rohit</title>
         </Head>
         <Global styles={globalStyles} />
