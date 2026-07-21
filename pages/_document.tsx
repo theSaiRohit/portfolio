@@ -13,10 +13,10 @@ export default function Document() {
           dangerouslySetInnerHTML={{ __html: `body{opacity:0!important}` }}
         />
         <script dangerouslySetInnerHTML={{ __html: OPTIMELEON_STUB }} />
-        <script async src="http://localhost:8787/b/oz2nuUmMd8oU.js" />
+        <script async src="https://edge-staging.optimeleon.com/b/h7iUBYnof2l2.js" />
         <script
           async
-          src="http://localhost:8787/c/oz2nuUmMd8oU.js"
+          src="https://edge-staging.optimeleon.com/c/h7iUBYnof2l2.js"
           data-consent-default="opt-in"
         />
       </Head>
