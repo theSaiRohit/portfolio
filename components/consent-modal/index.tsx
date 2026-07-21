@@ -10,23 +10,39 @@ import { useEffect, useState } from "react";
 
 const CONSENT_KEY = "opti_consent";
 
+const sendConsent = (analytics: boolean) => {
+  window.optimeleon?.("consent", { analytics });
+};
+
 export default function ConsentModal() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
+    let stored: string | null = null;
     try {
-      if (localStorage.getItem(CONSENT_KEY) === null) setOpen(true);
+      stored = localStorage.getItem(CONSENT_KEY);
     } catch {
       // localStorage unavailable — leave the modal closed
+      return;
+    }
+
+    if (stored === null) {
+      setOpen(true);
+      return;
+    }
+
+    // Returning visitor: replay their saved choice so opt-outs stick.
+    try {
+      sendConsent(Boolean(JSON.parse(stored)?.analytics));
+    } catch {
+      setOpen(true);
     }
   }, []);
 
-  const decide = (statistics: boolean) => {
-    if (typeof window.setOptiCookieConsent === "function") {
-      window.setOptiCookieConsent({ statistics });
-    }
+  const decide = (analytics: boolean) => {
+    sendConsent(analytics);
     try {
-      localStorage.setItem(CONSENT_KEY, JSON.stringify({ statistics }));
+      localStorage.setItem(CONSENT_KEY, JSON.stringify({ analytics }));
     } catch {
       // ignore persistence failures
     }

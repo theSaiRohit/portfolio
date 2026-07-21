@@ -1,6 +1,6 @@
 declare global {
   interface Window {
-    setOptiCookieConsent?: (consent: { statistics: boolean }) => void;
+    optimeleon?: (verb: string, ...args: unknown[]) => unknown;
   }
 }
 

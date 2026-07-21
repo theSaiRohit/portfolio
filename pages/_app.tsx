@@ -13,7 +13,6 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
       <GlobalContextProvider>
         <Head>
-          {/* Optimeleon scripts live in pages/_document.tsx so they load in <head> on first paint. */}
           <title>Sai Rohit</title>
         </Head>
         <Global styles={globalStyles} />
