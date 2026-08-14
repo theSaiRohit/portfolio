@@ -1,10 +1,11 @@
 import Head from "next/head";
 
 // QA fixture (PRD 869ehvdg8, story 6): the real, current-generation install snippet,
-// generated verbatim via buildInstallSnippet({ edgeToken: 'qaCppr8869eh' }) from
+// generated verbatim via buildInstallSnippet({ edgeToken: '5EpvkeCqEPHU' }) from
 // packages/snippets/src/install/install-snippet.ts on ralph/869ehvdg8. Static
 // <script src> tag — this is the baseline "already correctly detected" case S1's
-// acceptance criteria calls out as a regression guard.
+// acceptance criteria calls out as a regression guard. Token matches the local
+// dev stack's seeded "Default Project" so the dashboard's Verify step recognizes it.
 
 export default function QaGen3Current() {
   return (
@@ -19,14 +20,14 @@ export default function QaGen3Current() {
         />
         <script
           async
-          src="https://edge.optimeleon.com/b/qaCppr8869eh.js"
+          src="http://localhost:8787/b/5EpvkeCqEPHU.js"
           onError={undefined}
         />
-        <script async src="https://edge.optimeleon.com/c/qaCppr8869eh.js" />
+        <script async src="http://localhost:8787/c/5EpvkeCqEPHU.js" />
       </Head>
       <main style={{ padding: "4rem", fontFamily: "monospace" }}>
         <h1>QA: gen-3 (current) install</h1>
-        <p>Static &lt;script src&gt; tag, real buildInstallSnippet() output. Token: qaCppr8869eh</p>
+        <p>Static &lt;script src&gt; tag, real buildInstallSnippet() output. Token: 5EpvkeCqEPHU</p>
         <p>Expected: presence confirmed, generationTier = current, no warning.</p>
       </main>
     </>

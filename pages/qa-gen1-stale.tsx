@@ -4,6 +4,7 @@ import Head from "next/head";
 // <style id="__opti_af"> element, NO __opti_af_v stamp of any kind (stamping was
 // introduced in gen-2, D176). Mirrors GEN1_ONLY_HTML in
 // apps/marketer-api/services/analytics/snippet-tag-analysis.test.ts exactly.
+// Token matches the local dev stack's seeded "Default Project".
 
 export default function QaGen1Stale() {
   return (
@@ -17,11 +18,11 @@ export default function QaGen1Stale() {
               "window.optimeleon=window.optimeleon||function(){};window.__opti_bus=\"__opti_capture\";setTimeout(function(){var s=document.getElementById('__opti_af');if(s)s.remove()},300);",
           }}
         />
-        <script async src="https://edge.optimeleon.com/b/qaCppr8869eh.js" />
+        <script async src="http://localhost:8787/b/5EpvkeCqEPHU.js" />
       </Head>
       <main style={{ padding: "4rem", fontFamily: "monospace" }}>
         <h1>QA: gen-1 (stale) install</h1>
-        <p>Static style element, no generation stamp at all. Token: qaCppr8869eh</p>
+        <p>Static style element, no generation stamp at all. Token: 5EpvkeCqEPHU</p>
         <p>Expected: presence confirmed, generationTier = below-current, amber warning.</p>
       </main>
     </>
